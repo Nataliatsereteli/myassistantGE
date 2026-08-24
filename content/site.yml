@@ -20,8 +20,8 @@ url: "https://myassistant.ge"
 custom_domain: "myassistant.ge"
 
 # base_path — если сайт живёт НЕ в корне домена, а в подпапке.
-# Примеры: "" (обычный случай, свой домен), "/myassistant" (GitHub Pages
-# без своего домена: nataliatsereteli.github.io/myassistant), "/demo" (подпапка
+# Примеры: "" (обычный случай, свой домен), "/myassistantGE" (GitHub Pages
+# без своего домена: nataliatsereteli.github.io/myassistantGE), "/demo" (подпапка
 # на своём сервере). Слэш в начале, без слэша в конце.
 #
 # ВАЖНО: имя репозитория пишется ТОЛЬКО здесь. В url его быть не должно,
