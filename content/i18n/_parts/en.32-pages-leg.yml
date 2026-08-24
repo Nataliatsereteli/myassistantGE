@@ -1,0 +1,125 @@
+  privacy:
+    slug: "privacy"
+    title: "Privacy policy"
+    nav_title: "Privacy"
+    seo_title: "Privacy policy"
+    seo_description: >-
+      What personal data this site collects when you send an enquiry about
+      administrative support in Georgia, why it is needed, and how it is
+      handled.
+    updated: "2026"
+    body:
+      - h: "Who processes your data"
+        p:
+          - >-
+            The site belongs to an individual entrepreneur (sole proprietor)
+            who provides administrative support services in Georgia.
+            Contact details are on the Contact page.
+      - h: "What data is collected"
+        p:
+          - >-
+            The site is static and does not create accounts by itself
+            or keep a database of visitors. Data appears only when
+            you send it yourself.
+        list:
+          - "Your name and a way to reach you, if you filled in the enquiry form"
+          - "The text of your message"
+          - "The page language and the address of the page the enquiry was sent from"
+          - "Anonymised visit statistics, if analytics is switched on"
+      - h: "Why"
+        p:
+          - >-
+            The only purpose is to reply to you and provide the service you are
+            asking about. The data is not used for advertising and is not sold.
+      - h: "Who it is passed to"
+        list:
+          - "The form delivery service — only so the message reaches me"
+          - "Government agencies, a notary, a translator or a bank — only as far as your procedure requires, and only with your consent"
+          - "No one else"
+      - h: "How long it is kept"
+        p:
+          - >-
+            Correspondence and documents are kept for as long as the service
+            and the requirements of the law make necessary,
+            and are deleted after that.
+      - h: "Your rights"
+        p:
+          - >-
+            You can ask to see, correct or delete your data —
+            write to the contact address and I will do it.
+      - h: "Cookies"
+        p:
+          - >-
+            The site uses no advertising cookies. The language you choose
+            is stored in your browser's local storage so you are not asked
+            every time; it is not passed on to anyone.
+
+  terms:
+    slug: "terms"
+    title: "Terms of service"
+    nav_title: "Terms"
+    seo_title: "Terms of service"
+    seo_description: >-
+      What the administrative support in Georgia covers and what it does not,
+      how the price in lari is made up, and where my responsibility ends. I am
+      not a lawyer.
+    updated: "2026"
+    body:
+      - h: "The nature of the services"
+        p:
+          - >-
+            What is provided is administrative support:
+            advice on the procedure, preparing and checking documents,
+            filling in applications, dealing with government agencies
+            as part of that support, and keeping track of deadlines.
+          - >-
+            These services are not legal assistance in the sense of
+            representation in court, and they do not include legal opinions.
+            Where that is needed, consulting a lawyer is recommended.
+      - h: "Price"
+        list:
+          - "Prices are in Georgian lari and cover only the provider's own work"
+          - "State fees, notary and translator services and bank charges are paid separately at actual cost"
+          - "The full estimate is given before the work starts"
+          - "Urgent service is charged with the surcharge stated in the price list"
+      - h: "What is outside the provider's control"
+        p:
+          - >-
+            Decisions on applications are made by government agencies.
+            The provider does not guarantee a positive outcome or how long
+            a case takes, but does ensure the preparation is complete
+            and correct and that requests are answered promptly.
+      - h: "What the applicant does"
+        list:
+          - "Provide accurate documents and information"
+          - "Attend in person the stages that by law cannot be handed over to someone else (for example, the compulsory video interview)"
+          - "Pay state fees on time"
+      - h: "Confidentiality"
+        p:
+          - >-
+            The documents and data received are used only for the agreed
+            procedure. More detail is in the privacy policy.
+
+  thanks:
+    slug: "thank-you"
+    title: "Your enquiry has been sent"
+    nav_title: "Thank you"
+    kicker: "Done"
+    seo_title: "Your enquiry has been sent"
+    seo_description: "Your message has been received. I read enquiries and reply during working hours, usually the same day — by messenger if the matter is urgent."
+    lead: >-
+      Thank you. I will read your message and reply during working hours —
+      usually the same day. If it is urgent, message me on a messenger.
+
+  notfound:
+    title: "There is no such page"
+    summary: >-
+      The address may have changed, or there is a typo in the link.
+      Start from the home page — all the services and prices are there.
+    cta: "Or just write to me and I will tell you what you need."
+
+# =============================================================================
+#  УСЛУГИ
+#  Ключи (start, residence, …) должны совпадать с content/services.yml.
+#  Цены здесь не указываются — только тексты.
+# =============================================================================

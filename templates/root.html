@@ -1,0 +1,68 @@
+<!doctype html>
+{#
+  Корневая страница сайта.
+
+  GitHub Pages не умеет серверных редиректов, поэтому язык определяется здесь:
+  * поисковый робот видит обычную страницу со ссылками на все три версии
+    и корректные hreflang — так индексируются все языки;
+  * человек с JavaScript мгновенно уезжает на свою языковую версию
+    (запомненный выбор > язык браузера > язык по умолчанию);
+  * человек без JavaScript видит выбор из трёх кнопок.
+#}
+<html lang="{{ x_default }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.brand.name }} — {{ titles[x_default].tagline }}</title>
+<meta name="description" content="{{ titles[x_default].description }}">
+{# Каноническая версия — языковая главная. Сама эта страница только
+   перебрасывает посетителя, поэтому индексировать её не нужно; follow
+   оставляем, чтобы ссылочный вес уходил на языковые версии. #}
+<link rel="canonical" href="{{ base_url }}{{ home_urls[x_default] }}">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="{{ base }}/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="{{ base }}/assets/img/favicon.png" sizes="64x64">
+<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14120e" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="{{ base }}/assets/fonts/fonts.css?v={{ asset_v }}">
+<link rel="stylesheet" href="{{ base }}/assets/css/site.css?v={{ asset_v }}">
+<script>
+  (function () {
+    var supported = {{ langs | tojson }};
+    var fallback = {{ default_lang | tojson }};
+    var pick = null;
+    try {
+      var saved = localStorage.getItem("preferred-lang");
+      if (saved && supported.indexOf(saved) !== -1) pick = saved;
+    } catch (e) {}
+    if (!pick) {
+      var wanted = (navigator.languages || [navigator.language || ""]);
+      for (var i = 0; i < wanted.length && !pick; i++) {
+        var code = String(wanted[i]).toLowerCase().split("-")[0];
+        if (supported.indexOf(code) !== -1) pick = code;
+      }
+    }
+    // Префикс обязателен: без него в подпапочном режиме редирект уводит
+    // в корень домена, где сайта нет.
+    location.replace({{ base | tojson }} + "/" + (pick || fallback) + "/");
+  })();
+</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="page">
+  <main class="section" style="min-height: 70vh; display: grid; place-items: center">
+    <div class="wrap wrap--narrow" style="text-align: center">
+      <p class="kicker kicker--bare" style="justify-content: center">{{ site.brand.name }}</p>
+      <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ titles[x_default].tagline }}</h1>
+      <p class="lead" style="margin-top: var(--s4)">{{ titles[x_default].choose_language }}</p>
+      <div class="btn-row" style="margin-top: var(--s6); justify-content: center">
+        {% for l in langs %}
+        <a class="btn btn--ghost" href="{{ home_urls[l] }}" hreflang="{{ l }}" lang="{{ l }}">{{ site.language_names[l] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+home:
+
+  hero:
+    kicker: "Natalia Tsereteli · Tbilisi"
+    # <em>…</em> выделяет слово курсивом и цветом. Можно убрать.
+    title: "Georgian officialdom is <em>my</em> job. Yours is to live and work"
+    lead: >-
+      Residence permits, individual entrepreneur registration, the right to work
+      (special labour permit), bank accounts, taxes. I take on the paperwork, the
+      agencies and the deadlines — you get a clear plan and a result.
+    cta_primary: "Talk about my situation"
+    cta_secondary: "See the services"
+
+  facts_label: "The short version"
+  # Правая карточка в первом экране — сухие факты, снимающие первые вопросы.
+  facts:
+    - k: "Languages"
+      v: "Русский · ქართული · English"
+    - k: "Cities"
+      v: "Tbilisi, Batumi"
+    - k: "Format"
+      v: "Online and in person"
+    - k: "Prices"
+      v: "Fixed and published"
+    - k: "Reply"
+      v: "Usually within a working day"
+
+  # Текст внутри декоративной печати в первом экране.
+  stamp: "საქართველო · GEORGIA ·"
+
+  trust:
+    - title: "The price is known upfront"
+      body: >-
+        The cost of every service is published. State fees, the notary and the
+        translator are paid separately, at cost — I always name them before we start.
+    - title: "One person handles your case"
+      body: >-
+        No call centre, no queue of account managers. From the first day you know
+        who is running your case and who to ask.
+    - title: "Three languages in one pair of hands"
+      body: >-
+        With you I speak Russian or English; with the agencies, Georgian.
+        Nothing gets lost in translation.
+    - title: "Deadlines under control"
+      body: >-
+        I keep track of when residence permits, permits and contracts expire
+        and remind you about renewal early, not in the final week.
+
+  problem:
+    kicker: "Why this is needed"
+    title: "The hard part is not the law — it is having nowhere to ask about it"
+    body:
+      - >-
+        Georgia's rules on staying, registering a business and hiring are broadly
+        friendly to foreigners. But they are spread across different agencies, they
+        change, and the official clarifications come out in Georgian.
+      - >-
+        So people spend weeks on forums and chats, collect advice of varying
+        freshness, turn up at the Public Service Hall with an incomplete set
+        of documents — and start again.
+      - >-
+        My job is to replace that search with one clear route: what exactly you
+        need in your case, in what order, what it really costs
+        and what is happening with your application right now.
+    aside_title: "What people come to me with most often"
+    aside_items:
+      - "I have arrived and have no idea where to start"
+      - "I need a residence permit but don't know which ground fits"
+      - "I was refused, and the refusal doesn't say what to fix"
+      - "I need to work legally or join a Georgian company"
+      - "I want to open an IE and get the 1% tax right"
+      - "The bank refused me or keeps stalling on the account"
+      - "My residence permit runs out and renewal is two weeks away"
+
+  services:
+    kicker: "Services"
+    title: "Six formats — from a single task to full case management"
+    lead: >-
+      You can take one procedure and settle one specific question, or hand me
+      every administrative matter for the whole of your stay.
+    prices_cta: "Full price list, including single services"
+
+  process:
+    kicker: "How we work"
+    title: "Four steps, and after that only updates from me"
+    lead: >-
+      No “send everything you have and wait”. At every stage you know what is
+      happening and what is needed from you.
+    steps:
+      - title: "We go through your situation"
+        body: >-
+          30–40 minutes of conversation: your goal, citizenship, timing, family,
+          work and income. You come out knowing which grounds are really open to you.
+      - title: "Plan and estimate"
+        body: >-
+          A written route: the documents needed, the order of steps, the timescales
+          and the full cost, including state fees and third-party services.
+      - title: "We prepare the documents"
+        body: >-
+          I check your documents, fill in the applications, arrange translation
+          and notarisation, and book the appointments.
+      - title: "We see it through"
+        body: >-
+          I deal with the agencies, follow the review, respond to requests for
+          extra documents and tell you the decision.
+
+  about:
+    kicker: "Who I am"
+    title: "Natalia Tsereteli — your case manager in Georgia"
+    body:
+      - >-
+        I live in Georgia and do administrative accompaniment for foreign nationals:
+        from a first individual entrepreneur (sole proprietor) registration
+        to residence permit renewals and questions about hiring.
+      - >-
+        I am not a law firm and not a lawyer. I am the person who knows how Georgian
+        procedures work in practice: which document is accepted and which is sent
+        back; where there is a queue and where you book online; what is asked at the interview.
+      - >-
+        Work like this rests on being careful. So for every case I hold the list
+        of documents, the dates and the status — and you can ask about them
+        at any moment.
+    points_title: "How I work"
+    points:
+      - "I say it straight: if you can do it without me, I will tell you"
+      - "I don't promise results that are not mine to deliver"
+      - "Every amount is named before we start, not along the way"
+      - "Client documents and data never leave my hands"
+      - "If you need a lawyer or an auditor, I bring in one I trust"
+    # Личная цитата под фотографией — голос владелицы, не маркетинг.
+    quote: >-
+      I will not promise that Georgian bureaucracy becomes simple. I will promise that you no longer have to work it out on your own.
+    signature_caption: "Natalia Tsereteli · Tbilisi"
+    cta: "More about me"
+
+  faq:
+    kicker: "Questions"
+    title: "What people ask before we start"
+    all_cta: "All questions and answers →"
+    items:
+      - q: "Are you a lawyer?"
+        a: >-
+          No. I am a personal manager for administrative matters:
+          I prepare and file documents, deal with the agencies, keep the deadlines.
+          Legal representation in court and legal opinions are the work
+          of an advocate, and if that is needed I will recommend a specialist.
+      - q: "Do you guarantee the residence permit will be approved?"
+        a: >-
+          No, and nobody can: the decision is made by a state authority.
+          I answer for what preparation controls — the set will be complete,
+          the application correct, the deadlines met, and any requests from
+          the agency handled fast. That clearly improves the odds, but it is not the decision.
+      - q: "Are state fees and the notary included in the price?"
+        a: >-
+          No. State fees, the notary and the translator are paid separately
+          and at actual cost. I name those amounts in advance, in the estimate,
+          so the final figure is never a surprise.
+      - q: "Do I have to come in person?"
+        a: >-
+          Some procedures can be done remotely, but not all: documents for the
+          Employment Agency, for instance, are filed by the applicant in person,
+          and the compulsory video interview is attended in person too. I prepare
+          you for those steps and handle everything else.
+      - q: "Which language will we speak?"
+        a: >-
+          With you, Russian or English, whichever suits you. With the agencies,
+          the notary and the bank, Georgian. You do not need a separate translator
+          to talk to me.
+      - q: "Can I take just one procedure, without a package?"
+        a: >-
+          Yes. The price list has single services: document checks, filling in
+          an application, accompaniment to a government office, help with a bank
+          account. A package works out cheaper when there are several tasks.
+
+# --- Финальный блок «поговорим» (одинаковый на всех страницах) --------------

@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{# ---------------------------------------------------------------- ГЕРОЙ --- #}
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div class="stagger">
+        <p class="kicker">{{ t.home.hero.kicker }}</p>
+        <h1 class="display hero__title">{{ t.home.hero.title | safe }}</h1>
+        <p class="lead hero__lead">{{ t.home.hero.lead }}</p>
+        <div class="btn-row hero__actions">
+          <a class="btn btn--primary" href="#contact">{{ t.home.hero.cta_primary }}</a>
+          <a class="btn btn--ghost" href="{{ base }}/{{ lang }}/{{ t.pages.services.slug }}/">{{ t.home.hero.cta_secondary }}</a>
+        </div>
+      </div>
+
+      {# «Карточка дела»: сухие факты, которые снимают первые вопросы. #}
+      <aside class="dossier reveal" aria-label="{{ t.home.facts_label }}">
+        {% for f in t.home.facts %}
+        <div class="dossier__row">
+          <span class="dossier__k">{{ f.k }}</span>
+          <span class="dossier__v">{{ f.v }}</span>
+        </div>
+        {% endfor %}
+      </aside>
+    </div>
+  </div>
+
+  {# Флаг Грузии на ветру. Шестнадцать вертикальных полос одного и того же
+     изображения; амплитуда качания растёт слева направо, как у ткани
+     на древке. Чисто декоративно, поэтому скрыто от скринридеров. #}
+  {% set strips = 16 %}
+  <div class="hero__flag" aria-hidden="true" style="--strips: {{ strips }}">
+    {%- for i in range(strips) %}
+    <span style="--i: {{ i }}; --p: {{ (i * 100 / (strips - 1)) | round(2) }}%; --amp: {{ (0.15 + 0.85 * i / (strips - 1)) | round(3) }}"></span>
+    {%- endfor %}
+  </div>
+
+  {# Декоративная печать. Скрыта от скринридеров и на узких экранах. #}
+  <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+    <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="60" cy="60" r="47" fill="none" stroke="currentColor" stroke-width="0.5"/>
+    <defs><path id="stamp-arc" d="M60,60 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+    <text fill="currentColor"><textPath href="#stamp-arc" startOffset="4%">{{ t.home.stamp }}</textPath></text>
+    <text x="60" y="66" text-anchor="middle" fill="currentColor" style="font-size:15px;letter-spacing:0">{{ site.language_codes.ka }}</text>
+  </svg>
+</section>
+
+{# ------------------------------------------------------- ЧТО ЗДЕСЬ ЕСТЬ --- #}
+<section class="section section--tight cards-strip" style="border-top: 1px solid var(--rule)">
+  <div class="wrap">
+    <ul class="cards cards--4 cards--ruled">
+      {% for item in t.home.trust %}
+      <li class="reveal" style="transition-delay: {{ loop.index0 * 70 }}ms">
+        <p class="kicker kicker--bare">{{ "%02d"|format(loop.index) }}</p>
+        <p class="h3" style="margin-top: var(--s2)">{{ item.title }}</p>
+        <p class="small" style="margin-top: var(--s2)">{{ item.body }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{# --------------------------------------------------------- ПРОБЛЕМА ------ #}
+<section class="section" data-index="§ 01">
+  <div class="wrap">
+    <div class="editorial">
+      <div>
+        <p class="kicker">{{ t.home.problem.kicker }}</p>
+        <h2 class="h1" style="margin-top: var(--s4)">{{ t.home.problem.title }}</h2>
+        <div class="prose" style="margin-top: var(--s5)">
+          {% for p in t.home.problem.body %}
+          <p>{{ p }}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <aside class="card card--filled reveal">
+        <p class="kicker kicker--bare">{{ t.home.problem.aside_title }}</p>
+        <ul class="checklist" style="margin-top: var(--s3)">
+          {% for i in t.home.problem.aside_items %}
+          <li>{{ i }}</li>
+          {% endfor %}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{# ----------------------------------------------------- РЕЕСТР УСЛУГ ------ #}
+<section class="section" id="services" data-index="§ 02">
+  <div class="wrap">
+    <header style="max-width: 58ch">
+      <p class="kicker">{{ t.home.services.kicker }}</p>
+      <h2 class="h1" style="margin-top: var(--s4)">{{ t.home.services.title }}</h2>
+      <p class="lead" style="margin-top: var(--s4)">{{ t.home.services.lead }}</p>
+    </header>
+
+    <div style="margin-top: var(--s7)">
+      {% include "partials/service-index.html" %}
+    </div>
+
+    <div class="btn-row" style="margin-top: var(--s6)">
+      <a class="btn btn--quiet" href="{{ base }}/{{ lang }}/{{ t.pages.prices.slug }}/">{{ t.home.services.prices_cta }}</a>
+    </div>
+  </div>
+</section>
+
+{# --------------------------------------------------------- КАК РАБОТАЕМ -- #}
+{% if site.features.show_process_on_home %}
+<section class="section section--paper2" id="process" data-index="§ 03">
+  <div class="wrap">
+    <div class="editorial">
+      <div>
+        <p class="kicker">{{ t.home.process.kicker }}</p>
+        <h2 class="h1" style="margin-top: var(--s4)">{{ t.home.process.title }}</h2>
+        <p class="lead" style="margin-top: var(--s4)">{{ t.home.process.lead }}</p>
+      </div>
+      <ol class="steps">
+        {% for s in t.home.process.steps %}
+        <li class="steps__item">
+          <div>
+            <p class="steps__title">{{ s.title }}</p>
+            <p class="steps__body">{{ s.body }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# ------------------------------------------------------------- ОБО МНЕ --- #}
+<section class="section" id="about" data-index="§ 04">
+  <div class="wrap">
+    <div class="about">
+      {% include "partials/person.html" %}
+
+      <div>
+        <p class="kicker">{{ t.home.about.kicker }}</p>
+        <h2 class="h1" style="margin-top: var(--s4)">{{ t.home.about.title }}</h2>
+        <div class="prose" style="margin-top: var(--s5)">
+          {% for p in t.home.about.body %}
+          <p>{{ p }}</p>
+          {% endfor %}
+        </div>
+
+        <blockquote class="quote">
+          <p>{{ t.home.about.quote }}</p>
+          <footer>
+            {% include "partials/signature.html" %}
+            <span class="signature__caption">{{ t.home.about.signature_caption }}</span>
+          </footer>
+        </blockquote>
+
+        <div class="btn-row" style="margin-top: var(--s6)">
+          <a class="btn btn--quiet" href="{{ base }}/{{ lang }}/{{ t.pages.about.slug }}/">{{ t.home.about.cta }}</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="arcade" style="margin-top: var(--s8)" aria-hidden="true">
+
+    <p class="kicker" style="margin-top: var(--s7)">{{ t.home.about.points_title }}</p>
+    <ul class="checklist checklist--cols" style="margin-top: var(--s5)">
+      {% for p in t.home.about.points %}
+      <li>{{ p }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{# ------------------------------------------------------------- ВОПРОСЫ --- #}
+{% if site.features.show_faq_on_home and faq_items %}
+<section class="section" id="faq" data-index="§ 05">
+  <div class="wrap">
+    <div class="editorial">
+      <div>
+        <p class="kicker">{{ t.home.faq.kicker }}</p>
+        <h2 class="h1" style="margin-top: var(--s4)">{{ t.home.faq.title }}</h2>
+        <p class="small muted" style="margin-top: var(--s4)">
+          <a href="{{ base }}/{{ lang }}/{{ t.pages.faq.slug }}/">{{ t.home.faq.all_cta }}</a>
+        </p>
+      </div>
+      <div class="faq">
+        {% for q in faq_items %}
+        <details class="faq__item">
+          <summary class="faq__q">{{ q.q }}</summary>
+          <div class="faq__a"><p>{{ q.a }}</p></div>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include "partials/cta.html" %}
+{% endblock %}

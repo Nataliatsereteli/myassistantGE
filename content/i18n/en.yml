@@ -1,0 +1,1081 @@
+# =============================================================================
+#  АНГЛИЙСКАЯ ВЕРСИЯ САЙТА (English)
+#  Файл собран из фрагментов scripts/assemble_i18n.py, но дальше правится
+#  напрямую — именно он используется при сборке сайта.
+#
+#  Правила те же, что и в ru.yml: меняем только текст справа от двоеточия,
+#  отступы делаем пробелами, набор ключей не трогаем.
+#  Цены — в content/pricing.yml, контакты — в content/contacts.yml.
+# =============================================================================
+
+# =============================================================================
+#  РУССКАЯ ВЕРСИЯ САЙТА — весь текст на одном языке в одном файле.
+#
+#  Как править:
+#   * меняйте только то, что справа от двоеточия;
+#   * если строка начинается с "- ", это пункт списка: можно добавлять и удалять;
+#   * сохраняйте отступы (только пробелы, не табуляция);
+#   * текст с двоеточием или кавычками внутри — берите в кавычки: "Вот так: да";
+#   * длинный текст можно писать блоком через >- (см. примеры ниже).
+#
+#  ЦЕНЫ здесь не указываются — они в content/pricing.yml (один раз для всех языков).
+#  КОНТАКТЫ здесь не указываются — они в content/contacts.yml.
+# =============================================================================
+
+# --- Служебное: как сайт представляется поисковикам и соцсетям ---------------
+meta:
+  tagline: "Personal support for foreign nationals in Georgia"
+  tagline_short: "Support in Georgia"
+  description: >-
+    Personal case manager in Tbilisi: residence permits, individual
+    entrepreneur registration, work permits, banking and taxes. Fixed prices
+    in lari.
+  job_title: "Personal manager for administrative matters"
+  audience: "Foreign nationals living in Georgia or planning to move there"
+  choose_language: "Choose language"
+  owner_name: "Natalia Tsereteli"
+  photo_alt: >-
+    Natalia Tsereteli, personal case manager for administrative matters in Georgia
+  # Текст на картинке для соцсетей (генерируется scripts/make_images.py).
+  og:
+    headline: "Personal support in Georgia"
+    facts:
+      - "Residence permit · IE · work permit"
+      - "Fixed prices in lari"
+      - "Tbilisi and Batumi"
+
+# --- Короткие подписи интерфейса --------------------------------------------
+ui:
+  home: "Home"
+  main_nav: "Main navigation"
+  menu: "Menu"
+  skip_to_content: "Skip to content"
+  breadcrumb: "You are here"
+  write_to_me: "Message me"
+  read_more: "More"
+  all_services: "All services"
+  order: "Discuss my situation"
+  from: "from"
+  # How a "from" price is printed. {price} is replaced with the amount.
+  price_from: "from {price}"
+  per_month: "per month"
+  month: "month"
+  months: "mo."
+  per_visit: "per visit"
+  bundle: "If you pay for 3 months"
+  individually: "case by case"
+  price: "Price"
+  duration: "Timeline"
+  format: "Format"
+  included: "What the service includes"
+  not_included: "Not included in the price"
+  for_whom: "Who this service is for"
+  how_it_goes: "How it works"
+  result: "What you get"
+  related: "Related services"
+  faq_title: "Common questions"
+  city: "City"
+  hours: "Working hours"
+  phone: "Phone"
+  open_map: "Open in maps"
+  updated: "Updated"
+  legal_entity: "Provider"
+  photo_placeholder: "Photograph"
+
+# --- Контактные подписи, зависящие от языка ---------------------------------
+contacts:
+  city: "Tbilisi"
+  hours_short: "Mon–Fri 10:00–19:00"
+  hours_long: "Mon–Fri 10:00–19:00, Sat 11:00–16:00 (Tbilisi time)"
+
+# =============================================================================
+#  ГЛАВНАЯ СТРАНИЦА
+# =============================================================================
+
+home:
+
+  hero:
+    kicker: "Natalia Tsereteli · Tbilisi"
+    # <em>…</em> выделяет слово курсивом и цветом. Можно убрать.
+    title: "Georgian officialdom is <em>my</em> job. Yours is to live and work"
+    lead: >-
+      Residence permits, individual entrepreneur registration, the right to work
+      (special labour permit), bank accounts, taxes. I take on the paperwork, the
+      agencies and the deadlines — you get a clear plan and a result.
+    cta_primary: "Talk about my situation"
+    cta_secondary: "See the services"
+
+  facts_label: "The short version"
+  # Правая карточка в первом экране — сухие факты, снимающие первые вопросы.
+  facts:
+    - k: "Languages"
+      v: "Русский · ქართული · English"
+    - k: "Cities"
+      v: "Tbilisi, Batumi"
+    - k: "Format"
+      v: "Online and in person"
+    - k: "Prices"
+      v: "Fixed and published"
+    - k: "Reply"
+      v: "Usually within a working day"
+
+  # Текст внутри декоративной печати в первом экране.
+  stamp: "საქართველო · GEORGIA ·"
+
+  trust:
+    - title: "The price is known upfront"
+      body: >-
+        The cost of every service is published. State fees, the notary and the
+        translator are paid separately, at cost — I always name them before we start.
+    - title: "One person handles your case"
+      body: >-
+        No call centre, no queue of account managers. From the first day you know
+        who is running your case and who to ask.
+    - title: "Three languages in one pair of hands"
+      body: >-
+        With you I speak Russian or English; with the agencies, Georgian.
+        Nothing gets lost in translation.
+    - title: "Deadlines under control"
+      body: >-
+        I keep track of when residence permits, permits and contracts expire
+        and remind you about renewal early, not in the final week.
+
+  problem:
+    kicker: "Why this is needed"
+    title: "The hard part is not the law — it is having nowhere to ask about it"
+    body:
+      - >-
+        Georgia's rules on staying, registering a business and hiring are broadly
+        friendly to foreigners. But they are spread across different agencies, they
+        change, and the official clarifications come out in Georgian.
+      - >-
+        So people spend weeks on forums and chats, collect advice of varying
+        freshness, turn up at the Public Service Hall with an incomplete set
+        of documents — and start again.
+      - >-
+        My job is to replace that search with one clear route: what exactly you
+        need in your case, in what order, what it really costs
+        and what is happening with your application right now.
+    aside_title: "What people come to me with most often"
+    aside_items:
+      - "I have arrived and have no idea where to start"
+      - "I need a residence permit but don't know which ground fits"
+      - "I was refused, and the refusal doesn't say what to fix"
+      - "I need to work legally or join a Georgian company"
+      - "I want to open an IE and get the 1% tax right"
+      - "The bank refused me or keeps stalling on the account"
+      - "My residence permit runs out and renewal is two weeks away"
+
+  services:
+    kicker: "Services"
+    title: "Six formats — from a single task to full case management"
+    lead: >-
+      You can take one procedure and settle one specific question, or hand me
+      every administrative matter for the whole of your stay.
+    prices_cta: "Full price list, including single services"
+
+  process:
+    kicker: "How we work"
+    title: "Four steps, and after that only updates from me"
+    lead: >-
+      No “send everything you have and wait”. At every stage you know what is
+      happening and what is needed from you.
+    steps:
+      - title: "We go through your situation"
+        body: >-
+          30–40 minutes of conversation: your goal, citizenship, timing, family,
+          work and income. You come out knowing which grounds are really open to you.
+      - title: "Plan and estimate"
+        body: >-
+          A written route: the documents needed, the order of steps, the timescales
+          and the full cost, including state fees and third-party services.
+      - title: "We prepare the documents"
+        body: >-
+          I check your documents, fill in the applications, arrange translation
+          and notarisation, and book the appointments.
+      - title: "We see it through"
+        body: >-
+          I deal with the agencies, follow the review, respond to requests for
+          extra documents and tell you the decision.
+
+  about:
+    kicker: "Who I am"
+    title: "Natalia Tsereteli — your case manager in Georgia"
+    body:
+      - >-
+        I live in Georgia and do administrative accompaniment for foreign nationals:
+        from a first individual entrepreneur (sole proprietor) registration
+        to residence permit renewals and questions about hiring.
+      - >-
+        I am not a law firm and not a lawyer. I am the person who knows how Georgian
+        procedures work in practice: which document is accepted and which is sent
+        back; where there is a queue and where you book online; what is asked at the interview.
+      - >-
+        Work like this rests on being careful. So for every case I hold the list
+        of documents, the dates and the status — and you can ask about them
+        at any moment.
+    points_title: "How I work"
+    points:
+      - "I say it straight: if you can do it without me, I will tell you"
+      - "I don't promise results that are not mine to deliver"
+      - "Every amount is named before we start, not along the way"
+      - "Client documents and data never leave my hands"
+      - "If you need a lawyer or an auditor, I bring in one I trust"
+    # Личная цитата под фотографией — голос владелицы, не маркетинг.
+    quote: >-
+      I will not promise that Georgian bureaucracy becomes simple. I will promise that you no longer have to work it out on your own.
+    signature_caption: "Natalia Tsereteli · Tbilisi"
+    cta: "More about me"
+
+  faq:
+    kicker: "Questions"
+    title: "What people ask before we start"
+    all_cta: "All questions and answers →"
+    items:
+      - q: "Are you a lawyer?"
+        a: >-
+          No. I am a personal manager for administrative matters:
+          I prepare and file documents, deal with the agencies, keep the deadlines.
+          Legal representation in court and legal opinions are the work
+          of an advocate, and if that is needed I will recommend a specialist.
+      - q: "Do you guarantee the residence permit will be approved?"
+        a: >-
+          No, and nobody can: the decision is made by a state authority.
+          I answer for what preparation controls — the set will be complete,
+          the application correct, the deadlines met, and any requests from
+          the agency handled fast. That clearly improves the odds, but it is not the decision.
+      - q: "Are state fees and the notary included in the price?"
+        a: >-
+          No. State fees, the notary and the translator are paid separately
+          and at actual cost. I name those amounts in advance, in the estimate,
+          so the final figure is never a surprise.
+      - q: "Do I have to come in person?"
+        a: >-
+          Some procedures can be done remotely, but not all: documents for the
+          Employment Agency, for instance, are filed by the applicant in person,
+          and the compulsory video interview is attended in person too. I prepare
+          you for those steps and handle everything else.
+      - q: "Which language will we speak?"
+        a: >-
+          With you, Russian or English, whichever suits you. With the agencies,
+          the notary and the bank, Georgian. You do not need a separate translator
+          to talk to me.
+      - q: "Can I take just one procedure, without a package?"
+        a: >-
+          Yes. The price list has single services: document checks, filling in
+          an application, accompaniment to a government office, help with a bank
+          account. A package works out cheaper when there are several tasks.
+
+# --- Финальный блок «поговорим» (одинаковый на всех страницах) --------------
+
+cta:
+  kicker: "First step"
+  title: "Tell me what your situation is"
+  lead: >-
+    Write a couple of lines: your citizenship, what you need and by when.
+    I will tell you which route fits, what it takes and what it costs.
+  note: >-
+    The first conversation is there to understand the task, and commits you to nothing.
+
+# =============================================================================
+#  СТРАНИЦЫ
+#  slug — часть адреса. Менять можно, но старая ссылка перестанет работать.
+# =============================================================================
+pricing:
+  packages_head: "Support packages"
+  extras_head: "Individual services"
+  extras_lead: >-
+    If you need one specific procedure, you can order it on its own.
+    The range depends on how complex the case is and how many documents are involved.
+  columns:
+    service: "Service"
+    includes: "In short"
+    price: "Price"
+  tiers:
+    consult: "Consultation"
+    full: "Full support"
+  extras:
+    ip_registration: "Registration as an individual entrepreneur (IE)"
+    residence_application: "Preparing a residence permit application"
+    residence_full: "Full support through the residence permit process"
+    work_permit_support: "Support with the right to work (special labour permit)"
+    bank_account: "Help opening a bank account"
+    gov_visit: "Accompaniment to a government office"
+    fill_documents: "Filling in documents"
+    check_documents: "Document check"
+    translation: "Arranging document translation"
+    notarisation: "Arranging notarisation of documents"
+    rush: "Rush service"
+  disclaimer: >-
+    All prices are in Georgian lari (₾) and cover my work only.
+    State fees, notary and translator services and bank charges
+    are paid separately at actual cost, and are always named
+    before the work starts.
+
+# =============================================================================
+#  ФОРМА ЗАЯВКИ (показывается, если в site.yml настроен сервис форм)
+# =============================================================================
+form:
+  title: "Short enquiry"
+  subject: "Enquiry from the site"
+  name: "What should I call you"
+  name_ph: "Name"
+  contact: "How to reply"
+  contact_ph: "WhatsApp, Telegram or email"
+  contact_hint: "I reply the same way you write to me"
+  service: "What you need"
+  service_any: "Not sure yet — I need advice"
+  service_other: "Something else"
+  message: "Your situation in brief"
+  message_ph: "Citizenship, what you need and by when"
+  submit: "Send"
+  sending: "Sending…"
+  ok: "Thank you, your enquiry has arrived. I will reply during working hours."
+  fail: "The message did not go through. Please write to me on WhatsApp or Telegram."
+  consent: "By sending this form you agree to your details being processed so that I can reply."
+
+# =============================================================================
+#  ПОДВАЛ
+# =============================================================================
+footer:
+  about: >-
+    Personal administrative support for foreign nationals in Georgia:
+    residence permits, IE registration, right to work, banking and taxes.
+  services_head: "Services"
+  nav_head: "Sections"
+  lang_head: "Language"
+  legal_head: "Legal documents"
+  tax_id_label: "ID"
+  disclaimer: >-
+    Administrative support. Not a law firm
+    and not a government agency.
+
+
+pages:
+  home:
+    title: "Home"
+    nav_title: "Home"
+    seo_title: "Residence Permit, IE & Work Permit Help in Georgia"
+    seo_description: >-
+      Personal case manager in Georgia: residence permits, IE registration,
+      special labour permit, bank accounts, taxes. Fixed prices in lari.
+      RU/KA/EN.
+
+  services:
+    slug: "services"
+    title: "Services and prices for support in Georgia"
+    nav_title: "Services"
+    kicker: "Catalogue"
+    seo_title: "Services and Prices: Residence & Work Permits in Georgia"
+    seo_description: >-
+      Six formats: starting out, residence permit, business and residence
+      permit, personal manager, VIP support, special labour permit.
+      Fixed prices in lari.
+    lead: >-
+      Every service is a complete procedure with a clear result.
+      Below is what is included and what it costs.
+    note: >-
+      State fees and the fees of the notary and translator are not included
+      in the price and are paid separately at their actual cost.
+    prices_cta: "Price list for single services"
+
+  prices:
+    slug: "prices"
+    title: "Prices"
+    nav_title: "Prices"
+    kicker: "Price list"
+    seo_title: "Prices in Georgia: Residence Permit, IE, Work Permit"
+    seo_description: >-
+      Full price list in Georgian lari: IE registration 100–150 ₾, residence
+      permit application 250–350 ₾, full residence permit support 500–700 ₾.
+    lead: >-
+      All prices are in Georgian lari, with no hidden parts. Packages come
+      first, then single services if you only need one procedure.
+
+  about:
+    slug: "about"
+    title: "About me"
+    nav_title: "About"
+    kicker: "Who I am"
+    seo_title: "About me — personal case manager for expats in Georgia"
+    seo_description: >-
+      Nata, personal case manager in Georgia. Administrative support for
+      foreign nationals: residence permit, IE, work permit, banking, taxes.
+      Not a lawyer.
+    body:
+      - >-
+        My name is Natalia Tsereteli. I live in Georgia and I work as a personal manager
+        handling administrative matters for foreign nationals.
+      - >-
+        People come to me in one of two states. The first is “I have just
+        arrived and I don’t know where to start.” The second is “I tried on my
+        own and was refused, or I am stuck.” In both cases the job is the same:
+        to turn uncertainty into a list of concrete steps with dates.
+      - >-
+        What I do: I collect and check documents, fill in applications,
+        arrange translation and notarisation, book appointments,
+        deal with government offices, track how applications are progressing,
+        prepare you for interviews, and watch the expiry dates on your documents.
+      - >-
+        What I don’t do: I don’t represent anyone in court, I don’t give legal
+        opinions, I don’t keep your books and I don’t promise decisions that are
+        made by government bodies. If you need that kind of help, I will say so
+        straight away and recommend a lawyer or auditor I have worked with.
+      - >-
+        I work in Tbilisi and Batumi, and on most matters remotely.
+        I speak Russian and English; with the agencies, Georgian.
+    facts_title: "In brief"
+    facts:
+      - k: "Where"
+        v: "Tbilisi, Batumi"
+      - k: "Languages"
+        v: "RU · KA · EN"
+      - k: "Status"
+        v: "Individual entrepreneur (sole proprietor), Georgia"
+      - k: "Format"
+        v: "Online and in person"
+    principles_title: "Rules I stick to"
+    principles:
+      - "I quote the full cost before the work starts"
+      - "I don’t take a case if I see no lawful route to the result"
+      - "I don’t promise deadlines that are set by the agency"
+      - "I don’t pass client data or documents to third parties without consent"
+      - "I say so when a task can be handled without me"
+
+  contact:
+    slug: "contact"
+    title: "Contact"
+    nav_title: "Contact"
+    kicker: "Get in touch"
+    seo_title: "Contact — administrative support for expats in Georgia"
+    seo_description: >-
+      Message me on WhatsApp or Telegram, call, or send an email.
+      Tbilisi and Batumi. Consultations in Russian, Georgian and English.
+    lead: >-
+      The quickest way is a message on WhatsApp or Telegram: describe your
+      situation briefly and what you need. I will tell you which basis fits
+      and what it costs.
+    note: >-
+      Please don’t send scans of passports or other documents in your first
+      message. We discuss the task first, then I tell you exactly
+      what will be needed.
+    no_form_title: "Message me directly"
+    no_form_body: >-
+      WhatsApp or Telegram is the fastest way. I reply during working hours, usually the same day.
+
+  faq:
+    slug: "faq"
+    title: "Frequently asked questions"
+    nav_title: "FAQ"
+    kicker: "FAQ"
+    seo_title: "Residence permit, IE and work permit in Georgia: FAQ"
+    seo_description: >-
+      Answers about administrative support: guarantees, my fee, state fees,
+      when you must appear in person, processing times, refusals and renewals.
+    lead: >-
+      These are the questions people ask before we start. If yours is not
+      here, write to me and I will add it.
+    items:
+      - q: "Are you a lawyer?"
+        a: >-
+          No. I am a personal manager for administrative matters:
+          preparing and filing documents, dealing with government
+          bodies, tracking deadlines. Legal opinions and representation
+          in court are a lawyer's work.
+      - q: "Can you guarantee I will be approved?"
+        a: >-
+          No. The decision is made by a government body. What I answer for is
+          the quality of the preparation: a complete file, a correctly written
+          application, deadlines met and fast replies to queries. That is what
+          actually moves the outcome.
+      - q: "What is included in the price and what is not?"
+        a: >-
+          The price covers my work: the consultation, checking and preparing
+          documents, filling in applications, dealing with the agencies,
+          keeping the process on track. It does not cover state fees, notary
+          and translator services or bank charges — those are paid separately
+          at actual cost.
+      - q: "How long does it take to get a residence permit?"
+        a: >-
+          Processing times are set by the agency and they change, so I do not
+          quote the "average figure from the internet". At the first
+          consultation I give you the current time frame for your grounds, and
+          what can stretch it — a request for extra documents, for example.
+      - q: "I was refused. Can anything be done?"
+        a: >-
+          Often, yes. First we need to understand the reason for the refusal —
+          sometimes it is a formality in the document set, sometimes the wrong
+          grounds were chosen. I go through the situation and tell you whether
+          it makes sense to reapply and what to change. If the matter becomes
+          a legal one, we bring in a lawyer.
+      - q: "Can everything be done remotely?"
+        a: >-
+          Partly. A lot is settled online, but there are steps the applicant
+          takes in person: the compulsory online video interview for the right
+          to work (the special labour permit), for instance, and some visits
+          to government offices. I tell you in advance where you are needed.
+      - q: "What is small business status with 1% tax?"
+        a: >-
+          It is a special tax regime for individual entrepreneurs in Georgia
+          with turnover below a set threshold. It does not suit every kind of
+          activity. At the consultation I explain whether you qualify, and what
+          has to be done at registration in order to get it.
+      - q: "Do you help with accounting and tax returns?"
+        a: >-
+          I help you register on the Revenue Service portal, set up your
+          personal account there and I coordinate tax questions. Ongoing
+          bookkeeping is a separate profession; if you need one, I will
+          recommend an accountant.
+      - q: "Do you work with families?"
+        a: >-
+          Yes. The Personal Manager and VIP Support packages include
+          coordinating the administrative matters of family members —
+          documents for children and spouses, and their permit deadlines.
+      - q: "How do I pay?"
+        a: >-
+          Payment terms are agreed before we start and written into the contract.
+          Monthly packages are paid month by month; one-off services follow
+          an agreed schedule.
+      - q: "What if I only need one procedure?"
+        a: >-
+          Take a single service from the price list: a document check, filling
+          in an application, accompaniment to a government office, help with
+          a bank account. A package makes sense when there are several tasks.
+      - q: "Do you keep things confidential?"
+        a: >-
+          Yes. Documents and personal data are used only for the procedure
+          they were given for, and are not passed to third parties without
+          your consent — except where the law requires it.
+
+  privacy:
+    slug: "privacy"
+    title: "Privacy policy"
+    nav_title: "Privacy"
+    seo_title: "Privacy policy"
+    seo_description: >-
+      What personal data this site collects when you send an enquiry about
+      administrative support in Georgia, why it is needed, and how it is
+      handled.
+    updated: "2026"
+    body:
+      - h: "Who processes your data"
+        p:
+          - >-
+            The site belongs to an individual entrepreneur (sole proprietor)
+            who provides administrative support services in Georgia.
+            Contact details are on the Contact page.
+      - h: "What data is collected"
+        p:
+          - >-
+            The site is static and does not create accounts by itself
+            or keep a database of visitors. Data appears only when
+            you send it yourself.
+        list:
+          - "Your name and a way to reach you, if you filled in the enquiry form"
+          - "The text of your message"
+          - "The page language and the address of the page the enquiry was sent from"
+          - "Anonymised visit statistics, if analytics is switched on"
+      - h: "Why"
+        p:
+          - >-
+            The only purpose is to reply to you and provide the service you are
+            asking about. The data is not used for advertising and is not sold.
+      - h: "Who it is passed to"
+        list:
+          - "The form delivery service — only so the message reaches me"
+          - "Government agencies, a notary, a translator or a bank — only as far as your procedure requires, and only with your consent"
+          - "No one else"
+      - h: "How long it is kept"
+        p:
+          - >-
+            Correspondence and documents are kept for as long as the service
+            and the requirements of the law make necessary,
+            and are deleted after that.
+      - h: "Your rights"
+        p:
+          - >-
+            You can ask to see, correct or delete your data —
+            write to the contact address and I will do it.
+      - h: "Cookies"
+        p:
+          - >-
+            The site uses no advertising cookies. The language you choose
+            is stored in your browser's local storage so you are not asked
+            every time; it is not passed on to anyone.
+
+  terms:
+    slug: "terms"
+    title: "Terms of service"
+    nav_title: "Terms"
+    seo_title: "Terms of service"
+    seo_description: >-
+      What the administrative support in Georgia covers and what it does not,
+      how the price in lari is made up, and where my responsibility ends. I am
+      not a lawyer.
+    updated: "2026"
+    body:
+      - h: "The nature of the services"
+        p:
+          - >-
+            What is provided is administrative support:
+            advice on the procedure, preparing and checking documents,
+            filling in applications, dealing with government agencies
+            as part of that support, and keeping track of deadlines.
+          - >-
+            These services are not legal assistance in the sense of
+            representation in court, and they do not include legal opinions.
+            Where that is needed, consulting a lawyer is recommended.
+      - h: "Price"
+        list:
+          - "Prices are in Georgian lari and cover only the provider's own work"
+          - "State fees, notary and translator services and bank charges are paid separately at actual cost"
+          - "The full estimate is given before the work starts"
+          - "Urgent service is charged with the surcharge stated in the price list"
+      - h: "What is outside the provider's control"
+        p:
+          - >-
+            Decisions on applications are made by government agencies.
+            The provider does not guarantee a positive outcome or how long
+            a case takes, but does ensure the preparation is complete
+            and correct and that requests are answered promptly.
+      - h: "What the applicant does"
+        list:
+          - "Provide accurate documents and information"
+          - "Attend in person the stages that by law cannot be handed over to someone else (for example, the compulsory video interview)"
+          - "Pay state fees on time"
+      - h: "Confidentiality"
+        p:
+          - >-
+            The documents and data received are used only for the agreed
+            procedure. More detail is in the privacy policy.
+
+  thanks:
+    slug: "thank-you"
+    title: "Your enquiry has been sent"
+    nav_title: "Thank you"
+    kicker: "Done"
+    seo_title: "Your enquiry has been sent"
+    seo_description: "Your message has been received. I read enquiries and reply during working hours, usually the same day — by messenger if the matter is urgent."
+    lead: >-
+      Thank you. I will read your message and reply during working hours —
+      usually the same day. If it is urgent, message me on a messenger.
+
+  notfound:
+    title: "There is no such page"
+    summary: >-
+      The address may have changed, or there is a typo in the link.
+      Start from the home page — all the services and prices are there.
+    cta: "Or just write to me and I will tell you what you need."
+
+# =============================================================================
+#  УСЛУГИ
+#  Ключи (start, residence, …) должны совпадать с content/services.yml.
+#  Цены здесь не указываются — только тексты.
+# =============================================================================
+
+
+services:
+  # --------------------------------------------------------------- 01 -------
+  start:
+    slug: "start-in-georgia"
+    name: "Start in Georgia"
+    short: "Your first administrative steps: IE registration and a clear plan"
+    service_type: "Individual entrepreneur registration"
+    tagline: >-
+      For people already in Georgia who want the urgent
+      admin dealt with, without learning the system from scratch.
+    summary: >-
+      Arranging your registration as an individual entrepreneur, the list of
+      documents you need, preparing the applications, dealing with the
+      government offices and tracking the registration through to the end.
+    seo_title: "Register as an individual entrepreneur in Georgia (Tbilisi)"
+    seo_description: >-
+      Help registering as an individual entrepreneur (sole proprietor) in
+      Georgia: the document list, the applications, the offices, a fixed price
+      in lari.
+    duration: "Usually 1–3 working days once the documents are together"
+    format: "Online, plus one visit if it is needed"
+    for_whom:
+      - >-
+        You have arrived in Georgia and need a legal form for working
+        and earning quickly — most often that is individual entrepreneur
+        status.
+      - >-
+        You do not want to study regulations, turn up at the Public Service Hall
+        on spec and find out on the spot which document is missing.
+    includes:
+      - "Arranging your registration as an individual entrepreneur (IE)"
+      - "A list of the documents required for your specific situation"
+      - "Help preparing the applications"
+      - "Dealing with the relevant government offices"
+      - "Tracking the registration until the extract is issued"
+    excludes: >-
+      State fees and the services of a notary and a translator are paid
+      separately, at actual cost.
+    steps:
+      - "A short conversation about your planned work and expected income"
+      - "The document list and which of them need translating"
+      - "Preparing and filing the application"
+      - "Collecting the extract and explaining what comes next"
+    result: >-
+      Registered IE status, an extract from the register
+      and a clear next step — tax, bank or residence permit.
+    faq:
+      - q: "Do I need a residence permit to register as an IE in Georgia?"
+        a: >-
+          Usually no: registering as an individual entrepreneur and getting
+          a residence permit are separate procedures. But the document set
+          depends on your stay status, so I work it out case by case.
+      - q: "Will I get the 1% tax straight away?"
+        a: >-
+          Small business status (1% tax) is granted separately and not for every
+          type of activity. In the consultation I explain whether it fits you,
+          and what has to be done about it at registration.
+      - q: "Can I do the IE and the residence permit together?"
+        a: >-
+          Yes, that is what the Business / Residence permit package is for —
+          registration, tax, bank and the permit application as one process.
+
+  # --------------------------------------------------------------- 02 -------
+  # --------------------------------------------------------------- 02 -------
+  residence:
+    slug: "residence-permit-georgia"
+    name: "Residence permit, start to finish"
+    short: "Full administrative support for your residence permit application"
+    service_type: "Residence permit application support"
+    tagline: >-
+      You gather your personal documents — everything else on the residence
+      permit application is done by me.
+    summary: >-
+      Full administrative support through the residence permit process:
+      checking your documents, preparing the application, arranging translation
+      and notarisation, dealing with the government offices and tracking
+      the decision.
+    seo_title: "Residence permit in Georgia — full application support"
+    seo_description: >-
+      Residence permit in Georgia, start to finish: document check,
+      application preparation, translation and notarisation, filing, and
+      tracking the decision.
+    duration: "3–7 days to prepare, then the agency's own review period"
+    format: "Online, with support at the filing itself"
+    for_whom:
+      - >-
+        You need a residence permit and you want the application to land first
+        time — no returns over the format of a document, a translation
+        or the wrong grounds being stated.
+      - >-
+        Or you have already filed on your own, been refused, and could not work
+        out what exactly to fix.
+    includes:
+      - "Checking the documents you need"
+      - "Preparing the application"
+      - "Arranging document translation and notarisation"
+      - "Dealing with the government offices"
+      - "Support through the filing itself"
+      - "Tracking the review of your application"
+      - "Help if further documents are requested"
+    excludes: >-
+      State fees, translator and notary services and other third-party costs
+      are not included in the price of the service.
+    steps:
+      - "We settle the grounds on which a permit is open to you"
+      - "We check the set and find the weak spots before filing"
+      - "Translations, notary, application"
+      - "Filing and tracking through to the decision"
+    result: >-
+      An application filed with a complete set, a status you can follow
+      and a fast response if the agency asks for anything more.
+    note: >-
+      If a permit is not available to you on your grounds, I will say so
+      before we start and suggest alternatives, rather than file and hope.
+    faq:
+      - q: "Which grounds for a residence permit suit me?"
+        a: >-
+          There are several — work, study, business, family, property
+          and others. Which one fits you depends on citizenship, income,
+          family situation and plans. That is the first thing we establish.
+      - q: "What do I do if further documents are requested?"
+        a: >-
+          That is a normal part of the procedure. I take the request, explain
+          what exactly is needed, and help you gather and send it fast, in time.
+      - q: "Is renewal included in this service?"
+        a: >-
+          This service covers one filing. I keep an eye on expiry dates
+          in the Personal manager and VIP support packages,
+          or a renewal can be ordered separately.
+
+  # --------------------------------------------------------------- 03 -------
+
+  # --------------------------------------------------------------- 03 -------
+  business:
+    slug: "business-and-residence-permit"
+    name: "Business / Residence permit"
+    short: "IE, taxes, bank account, right to work and residence permit — as one process"
+    service_type: "Full administrative support for business set-up and a residence permit"
+    tagline: >-
+      The complete administrative start: from individual entrepreneur
+      registration to a filed residence permit application.
+    summary: >-
+      Individual entrepreneur registration, a first consultation on taxes,
+      registration on the Revenue Service portal and setup of your online
+      account, help with opening a bank account, support with obtaining
+      the right to work, and preparation of the residence permit application.
+    seo_title: "Business and residence permit in Georgia: IE, bank, taxes"
+    seo_description: >-
+      Individual entrepreneur registration in Georgia, tax advice, Revenue
+      Service and bank accounts, the right to work, and the residence permit
+      application.
+    duration: "2–5 weeks, depending on the bank and the agencies"
+    format: "Online + in-person visits where needed"
+    for_whom:
+      - >-
+        You are moving to work or run your business from Georgia, and you need
+        the whole administrative picture at once: status, taxes, an account
+        and legal stay.
+      - >-
+        You would rather not do it piece by piece and then find that one step
+        was done in a way that blocks the next one.
+    includes:
+      - "Registration as an individual entrepreneur (IE, sole proprietor)"
+      - "A first consultation on tax questions"
+      - "Registration on the official Revenue Service site of the Ministry of Finance and setup of your online account"
+      - "Help through the process of opening a bank account"
+      - "Support with obtaining the right to work (special labour permit) and filing the required applications"
+      - "Preparation of the residence permit application"
+      - "Dealing with the government agencies"
+      - "Full control of the whole process"
+    excludes: >-
+      State fees, notary and translator services and bank charges are paid
+      separately, at actual cost.
+    steps:
+      - "We go through the model: what you do, where the income comes from, who your clients are"
+      - "IE registration and the tax regime"
+      - "Revenue Service online account, bank"
+      - "Right to work and the residence permit application"
+    result: >-
+      A registered status, a working online account at the tax office,
+      an open bank account and a filed residence permit application.
+    faq:
+      - q: "Can you guarantee that a bank account will be opened?"
+        a: >-
+          No — the bank decides, and each one has its own requirements for
+          foreign clients. I prepare the file so there are fewer questions,
+          stay with you through the process, and if one bank says no,
+          I suggest the next one.
+      - q: "How is this different from the “Start in Georgia” package?"
+        a: >-
+          “Start” is IE registration only. Here you also get taxes, the online
+          account, the bank, the right to work and the residence permit
+          application — the whole administrative picture.
+      - q: "What if I already have an IE?"
+        a: >-
+          Then part of the work is not needed, and we build the service from
+          separate items in the price list — that comes out cheaper. Write and
+          tell me what is already done.
+
+  # --------------------------------------------------------------- 04 -------
+  # --------------------------------------------------------------- 04 -------
+  manager:
+    slug: "personal-manager"
+    name: "Personal manager"
+    short: "Monthly handling of every administrative matter, for as long as you stay"
+    service_type: "Administrative support on a monthly retainer"
+    tagline: >-
+      You do not order services one at a time — you simply hand the
+      administrative side of life in Georgia over to me.
+    summary: >-
+      Monthly support: dealing with government agencies, preparing documents,
+      filling in applications, arranging appointments and visits, bank matters,
+      coordinating taxes, tracking the expiry dates of your documents, and
+      finding a translator or a lawyer if one is needed.
+    seo_title: "Personal manager in Georgia — monthly admin support"
+    seo_description: >-
+      Monthly administrative support in Tbilisi: government offices,
+      documents, bank, taxes, and deadline tracking for your residence and
+      special labour permits.
+    duration: "Monthly, with no cap on the number of requests under the contract"
+    format: "Constant contact by messenger + meetings"
+    for_whom:
+      - >-
+        Administrative matters keep coming up: renewals, certificates,
+        tax deadlines, documents for the family, visits to the agencies.
+      - >-
+        You would rather have one channel and one person responsible
+        than look for someone new for every task.
+    includes:
+      - "Dealing with the government agencies"
+      - "Preparing documents"
+      - "Filling in applications"
+      - "Arranging appointments and visits"
+      - "Sorting out anything to do with the bank"
+      - "Coordinating tax matters"
+      - "Tracking the expiry dates of the residence permit and other documents"
+      - "Finding a translator or a lawyer where needed"
+      - "Obtaining information from government agencies on the client's behalf in the cases provided for by law"
+    excludes: >-
+      State fees and third-party services are paid separately.
+      Bookkeeping is not included.
+    result: >-
+      Not a single missed deadline, and one person you can write to
+      about any administrative question.
+    note: >-
+      On a 3-month contract the rate is lower —
+      the exact amounts are in the price list.
+    faq:
+      - q: "Is there a limit on requests?"
+        a: >-
+          The scope and its limits are set out in the contract, so both sides
+          know what to expect. Ordinary day-to-day matters are included; large
+          separate procedures (a full new residence permit, for example)
+          are quoted separately.
+      - q: "Can it cover the family?"
+        a: >-
+          Yes. Coordinating administrative matters for family members is part
+          of the package — we agree who is covered at the start.
+      - q: "Can I pause and come back later?"
+        a: >-
+          Yes, it is a monthly arrangement. The terms for pausing
+          are set out in the contract.
+
+  # --------------------------------------------------------------- 05 -------
+
+  # --------------------------------------------------------------- 05 -------
+  vip:
+    slug: "vip-support"
+    name: "VIP support"
+    short: "Priority contact, in-person visits and coordination of everything around you"
+    service_type: "Priority personal support"
+    tagline: >-
+      Maximum involvement: priority replies, personal presence
+      and coordination of housing, banking, services and family documents.
+    summary: >-
+      Everything included in the other packages, plus priority communication,
+      more frequent in-person meetings, accompaniment to government offices,
+      coordination of housing, banking and services, arranging an interpreter
+      and administrative matters for family members.
+    seo_title: "VIP support in Georgia — a personal manager for expats"
+    seo_description: >-
+      Priority personal support in Georgia: I go with you to government
+      offices and coordinate housing, banking, an interpreter and the family's
+      paperwork.
+    duration: "Monthly"
+    format: "Priority contact + regular in-person meetings"
+    for_whom:
+      - >-
+        You would rather have the result than work it all out: your time costs
+        more, there is a lot to do, and it concerns the whole family.
+      - >-
+        You want someone to physically go with you to the agency,
+        talk to the bank and keep the whole calendar in hand.
+    includes:
+      - "Everything from the previous packages"
+      - "Priority communication"
+      - "More frequent in-person meetings"
+      - "Accompaniment to various government offices"
+      - "Full administrative support with documents"
+      - "Coordination of matters involving housing, banking and various services"
+      - "Arranging interpreter services"
+      - "Coordination of administrative matters for family members"
+    excludes: >-
+      State fees, notary and interpreter services, rent
+      and bank charges are paid separately.
+    result: >-
+      The administrative side of life in Georgia that you barely
+      have to handle yourself.
+    faq:
+      - q: "What does “priority communication” mean?"
+        a: >-
+          Your messages are dealt with first, and for urgent matters a wider
+          contact window applies. The exact terms are set out
+          in the agreement.
+      - q: "Why does the price say “from”?"
+        a: >-
+          The workload depends a lot on the size of the family, the city and the
+          number of tasks. I quote the final figure after reviewing the situation — before work starts.
+
+  # --------------------------------------------------------------- 06 -------
+  # --------------------------------------------------------------- 06 -------
+  work_permit:
+    slug: "work-permit-georgia"
+    name: "Right to work (special labour permit)"
+    short: "A consultation, or full support through the procedure for a foreign national"
+    service_type: "Support in obtaining the right to work"
+    tagline: >-
+      The applicant goes through the procedure in person — my job is to make
+      sure they arrive prepared and with the right set of documents.
+    summary: >-
+      Administrative support through the process of obtaining the right to work
+      (the special labour permit) for foreign nationals: identifying documents,
+      checking the set, help with the electronic system and the payment,
+      preparation for the mandatory online interview, tracking the review.
+    seo_title: "Work permit for foreigners in Georgia: special labour permit"
+    seo_description: >-
+      Right to work in Georgia: consultation from 100 ₾, full support from 300
+      ₾. Documents, online application, the state fee and the mandatory video
+      interview.
+    duration: "Depends on the agency's processing time"
+    format: "Online; the applicant attends the interview in person"
+    for_whom:
+      - >-
+        You are a foreign national and you need to work legally in Georgia
+        or take a job with a Georgian company.
+      - >-
+        You want to understand the whole procedure, or to hand it over
+        and keep only the steps you have to do yourself.
+    includes:
+      - "Initial consultation and assessment of the situation"
+      - "Identifying the documents and information required"
+      - "Checking the documents you provide"
+      - "Help filling in the application"
+      - "Help registering and working with the electronic system"
+      - "Arranging and tracking payment of the state service fee"
+      - "Preparation for the mandatory online interview and an explanation of how it is conducted"
+      - "Interpreter services arranged if needed"
+      - "Tracking the review of the application"
+      - "Liaising with the relevant government bodies as part of the support"
+      - "Help if additional documents or information are requested"
+      - "Informing you of the decision taken"
+      - "Tracking the validity period of the right to work"
+      - "Help preparing documents for renewal"
+    excludes: >-
+      The state fee for the service and interpreter services
+      are paid separately.
+    note: >-
+      Important to know: documents are submitted to the Agency by the applicant
+      personally, and the mandatory video interview is also attended in person.
+      The service covers full administrative support with preparing and filing
+      the documents and coordination of every stage of the procedure.
+    steps:
+      - "Assessment of the situation and the list of documents"
+      - "Checking the set and filling in the application"
+      - "Online application and payment of the state service fee"
+      - "Preparation for the video interview"
+      - "Tracking the review and informing you of the decision"
+    result: >-
+      A correctly filed application, an interview you are ready for
+      and tracking of the validity period of the permit granted.
+    faq:
+      - q: "How does a consultation differ from full support?"
+        a: >-
+          A consultation is an assessment of your situation, the list of
+          documents, an explanation of the procedure and timelines and
+          instructions for filling in the application: after that you act on
+          your own. Full support means I run the process: I check the documents,
+          help with the application and the online filing, coordinate the
+          payment, prepare you for the interview and track the review.
+      - q: "Can you attend the interview instead of me?"
+        a: >-
+          No. The mandatory video interview is attended by the applicant
+          in person, that is a requirement of the procedure. I prepare you
+          for it: I explain the format, the usual questions and arrange
+          an interpreter if needed.
+      - q: "Do I need a residence permit to get the right to work?"
+        a: >-
+          These are separate procedures, but they often run together and the
+          order matters. At the consultation I will tell you which one makes
+          more sense to do first in your case.
+
+# =============================================================================
+#  ПРАЙС — подписи. Сами суммы в content/pricing.yml
+# =============================================================================
+

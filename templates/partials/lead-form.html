@@ -1,0 +1,66 @@
+{#
+  Форма заявки. Отправляется через внешний сервис (см. site.yml -> forms).
+  Если сервис не настроен, этот файл вообще не подключается.
+#}
+{% set action = ('https://api.web3forms.com/submit' if site.forms.provider == 'web3forms' else site.forms.endpoint) %}
+<form class="form" data-lead-form method="POST" action="{{ action }}"
+      data-msg-sending="{{ t.form.sending }}"
+      data-msg-ok="{{ t.form.ok }}"
+      data-msg-fail="{{ t.form.fail }}"
+      {% if site.forms.redirect_to_thanks and t.pages.thanks %}data-thanks-url="/{{ lang }}/{{ t.pages.thanks.slug }}/"{% endif %}>
+
+  {% if site.forms.provider == 'web3forms' %}
+  <input type="hidden" name="access_key" value="{{ site.forms.access_key }}">
+  <input type="hidden" name="subject" value="{{ t.form.subject }}">
+  <input type="hidden" name="from_name" value="{{ site.brand.name }}">
+  {% endif %}
+  <input type="hidden" name="_language" value="{{ lang }}">
+  <input type="hidden" name="_page" value="{{ canonical }}">
+
+  <p class="kicker kicker--bare">{{ t.form.title }}</p>
+
+  <div class="field">
+    <label for="f-name">{{ t.form.name }} <span class="req" aria-hidden="true">*</span></label>
+    <input id="f-name" name="name" type="text" required autocomplete="name"
+           placeholder="{{ t.form.name_ph }}">
+  </div>
+
+  <div class="field">
+    <label for="f-contact">{{ t.form.contact }} <span class="req" aria-hidden="true">*</span></label>
+    <input id="f-contact" name="contact" type="text" required
+           placeholder="{{ t.form.contact_ph }}">
+    <span class="field__hint">{{ t.form.contact_hint }}</span>
+  </div>
+
+  <div class="field">
+    <label for="f-service">{{ t.form.service }}</label>
+    <select id="f-service" name="service">
+      <option value="">{{ t.form.service_any }}</option>
+      {% for s in services %}
+      <option value="{{ t.services[s.id].name }}">{{ t.services[s.id].name }}</option>
+      {% endfor %}
+      <option value="{{ t.form.service_other }}">{{ t.form.service_other }}</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="f-message">{{ t.form.message }}</label>
+    <textarea id="f-message" name="message" placeholder="{{ t.form.message_ph }}"></textarea>
+  </div>
+
+  {# Ловушка для спам-ботов: человек этого поля не видит. #}
+  <div class="hp" aria-hidden="true">
+    <label for="f-honey">Leave this empty</label>
+    <input id="f-honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+  </div>
+
+  <button class="btn btn--primary" type="submit">{{ t.form.submit }}</button>
+
+  <p class="form__status" data-form-status hidden role="status" aria-live="polite"></p>
+  <p class="form__note">
+    {{ t.form.consent }}
+    {% if t.pages.privacy %}
+    <a href="{{ base }}/{{ lang }}/{{ t.pages.privacy.slug }}/">{{ t.pages.privacy.nav_title }}</a>.
+    {% endif %}
+  </p>
+</form>

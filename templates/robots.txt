@@ -1,0 +1,11 @@
+{% if allow_indexing %}
+User-agent: *
+Allow: /
+
+Sitemap: {{ base_url }}{{ base }}/sitemap.xml
+{% else %}
+# Сайт временно закрыт от индексации.
+# Включить: content/site.yml -> allow_indexing: true
+User-agent: *
+Disallow: /
+{% endif %}

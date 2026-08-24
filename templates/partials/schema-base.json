@@ -1,0 +1,156 @@
+{#- Базовая разметка Schema.org. Строки прогоняются через tojson, поэтому
+    кавычки и переводы строк в контенте безопасны. -#}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": {{ (base_url ~ "/#business") | tojson }},
+      {# Название собирается из бренда и слогана нужного языка: одно поле
+         legal_display_name давало русскую строку на всех 47 страницах. #}
+      "name": {{ (site.brand.name ~ " — " ~ t.meta.tagline) | tojson }},
+      "alternateName": {{ site.brand.name | tojson }},
+      "legalName": {{ site.legal.entity_name | tojson }},
+      "description": {{ t.meta.description | tojson }},
+      "url": {{ (base_url ~ base ~ "/" ~ lang ~ "/") | tojson }},
+      "inLanguage": {{ lang | tojson }},
+      "image": {{ (base_url ~ base ~ "/assets/img/og-" ~ lang ~ ".png") | tojson }},
+      "logo": {{ (base_url ~ base ~ "/assets/img/favicon.png") | tojson }},
+      "priceRange": {{ site.brand.price_range | tojson }},
+      "currenciesAccepted": {{ pricing.currency.code | tojson }},
+{% if contacts.phone %}
+      "telephone": {{ ("+" ~ (contacts.phone | digits)) | tojson }},
+{% endif %}
+{% if contacts.email %}
+      "email": {{ contacts.email | tojson }},
+{% endif %}
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GE",
+        "addressLocality": {{ t.contacts.city | tojson }}
+{%- if contacts.street %},
+        "streetAddress": {{ contacts.street | tojson }}
+{%- endif %}
+{%- if contacts.postal_code %},
+        "postalCode": {{ contacts.postal_code | tojson }}
+{%- endif %}
+
+      },
+{% if contacts.geo and contacts.geo.lat %}
+      "geo": { "@type": "GeoCoordinates", "latitude": {{ contacts.geo.lat }}, "longitude": {{ contacts.geo.lng }} },
+{% endif %}
+      "areaServed": [
+        { "@type": "Country", "name": "Georgia" }
+{%- for c in contacts.cities_served %},
+        { "@type": "City", "name": {{ c | tojson }} }
+{%- endfor %}
+
+      ],
+      "availableLanguage": [
+{% for l in langs %}
+        { "@type": "Language", "name": {{ site.language_names[l] | tojson }}, "alternateName": {{ l | tojson }} }{{ "," if not loop.last }}
+{% endfor %}
+      ],
+{% if contacts.hours %}
+      "openingHoursSpecification": [
+{% for h in contacts.hours %}
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [{% for d in h.days %}{{ d | tojson }}{{ ", " if not loop.last }}{% endfor %}],
+          "opens": {{ h.opens | tojson }},
+          "closes": {{ h.closes | tojson }}
+        }{{ "," if not loop.last }}
+{% endfor %}
+      ],
+{% endif %}
+{% set socials = contacts.socials | default({}, true) %}
+{% if socials %}
+      "sameAs": [
+{% for k, v in socials.items() if v %}
+        {{ v | tojson }}{{ "," if not loop.last }}
+{% endfor %}
+      ],
+{% endif %}
+      "founder": { "@id": {{ (base_url ~ "/#owner") | tojson }} },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": {{ t.pages.services.title | tojson }},
+        "itemListElement": [
+{% for s in services %}
+{% set st = t.services[s.id] %}
+{% set pk = pricing.packages[s.price] %}
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": {{ st.name | tojson }},
+              "description": {{ st.summary | tojson }},
+              "url": {{ (base_url ~ base ~ "/" ~ lang ~ "/" ~ t.pages.services.slug ~ "/" ~ st.slug ~ "/") | tojson }}
+            },
+            "price": {{ pk.amount | tojson }},
+            "priceCurrency": {{ pricing.currency.code | tojson }},
+            "availability": "https://schema.org/InStock"
+          }{{ "," if not loop.last }}
+{% endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": {{ (base_url ~ "/#owner") | tojson }},
+      "name": {{ site.brand.owner_name | tojson }},
+      "jobTitle": {{ t.meta.job_title | tojson }},
+      "worksFor": { "@id": {{ (base_url ~ "/#business") | tojson }} },
+      "knowsLanguage": [{% for l in langs %}{{ site.language_names[l] | tojson }}{{ ", " if not loop.last }}{% endfor %}]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ (base_url ~ "/#website") | tojson }},
+      "url": {{ (base_url ~ "/") | tojson }},
+      "name": {{ site.brand.name | tojson }},
+      "inLanguage": [{% for l in langs %}{{ site.locales[l] | replace("_", "-") | tojson }}{{ ", " if not loop.last }}{% endfor %}],
+      "publisher": { "@id": {{ (base_url ~ "/#business") | tojson }} }
+    },
+    {
+      "@type": "WebPage",
+      "@id": {{ (canonical ~ "#page") | tojson }},
+      "url": {{ canonical | tojson }},
+      "name": {{ seo.title | tojson }},
+      "description": {{ seo.description | tojson }},
+      "inLanguage": {{ lang | tojson }},
+      "isPartOf": { "@id": {{ (base_url ~ "/#website") | tojson }} },
+      "about": { "@id": {{ (base_url ~ "/#business") | tojson }} }
+{%- if breadcrumbs is defined and breadcrumbs %},
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+{% for b in breadcrumbs %}
+          { "@type": "ListItem", "position": {{ loop.index }}, "name": {{ b.title | tojson }}{% if b.url %}, "item": {{ (base_url ~ b.url) | tojson }}{% endif %} }{{ "," if not loop.last }}
+{% endfor %}
+        ]
+      }
+{%- endif %}
+
+    }
+{%- if route.key.startswith("service:") %},
+{% include "partials/schema-service.json" %}
+{%- endif %}
+{%- if faq_items %},
+    {
+      "@type": "FAQPage",
+      "@id": {{ (canonical ~ "#faq") | tojson }},
+      "inLanguage": {{ lang | tojson }},
+      "mainEntity": [
+{% for q in faq_items %}
+        {
+          "@type": "Question",
+          "name": {{ q.q | tojson }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ q.a | tojson }} }
+        }{{ "," if not loop.last }}
+{% endfor %}
+      ]
+    }
+{%- endif %}
+
+  ]
+}

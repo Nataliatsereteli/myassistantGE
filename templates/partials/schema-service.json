@@ -1,0 +1,40 @@
+{#- Разметка одной услуги. Подключается только со страницы услуги. -#}
+    {
+      "@type": "Service",
+      "@id": {{ (canonical ~ "#service") | tojson }},
+      "name": {{ svc.name | tojson }},
+      "description": {{ svc.summary | tojson }},
+      "serviceType": {{ svc.service_type | tojson }},
+      "url": {{ canonical | tojson }},
+      "inLanguage": {{ lang | tojson }},
+      "provider": { "@id": {{ (base_url ~ "/#business") | tojson }} },
+      "areaServed": { "@type": "Country", "name": "Georgia" },
+      "audience": { "@type": "Audience", "audienceType": {{ t.meta.audience | tojson }} },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": {{ svc.name | tojson }},
+        "itemListElement": [
+{% for item in svc.includes %}
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": {{ item | tojson }} } }{{ "," if not loop.last }}
+{% endfor %}
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": {{ pricing.currency.code | tojson }},
+{% if svc_price.get('from') %}
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": {{ pricing.currency.code | tojson }},
+          "minPrice": {{ svc_price.amount }}
+        },
+{% endif %}
+        "price": {{ svc_price.amount }},
+{% if svc_price.get('per') %}
+        "eligibleDuration": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" },
+{% endif %}
+        "availability": "https://schema.org/InStock",
+        "url": {{ canonical | tojson }},
+        "seller": { "@id": {{ (base_url ~ "/#business") | tojson }} }
+      }
+    }

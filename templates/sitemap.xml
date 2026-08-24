@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{#- Каждый URL перечисляет все свои языковые версии — так Google понимает,
+    что это одна и та же страница на разных языках, и не считает их дублями. -#}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for r in routes %}
+  <url>
+    <loc>{{ base_url }}{{ r.url }}</loc>
+{% for l, u in alt[r.key].items() %}
+    <xhtml:link rel="alternate" hreflang="{{ l }}" href="{{ base_url }}{{ u }}"/>
+{% endfor %}
+{% if x_default in alt[r.key] %}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ base_url }}{{ alt[r.key][x_default] }}"/>
+{% endif %}
+    <lastmod>{{ today }}</lastmod>
+    <changefreq>{{ r.changefreq }}</changefreq>
+    <priority>{{ r.priority }}</priority>
+  </url>
+{% endfor %}
+</urlset>

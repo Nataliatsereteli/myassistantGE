@@ -1,0 +1,70 @@
+name: Публикация сайта
+
+# Сайт пересобирается и публикуется автоматически при коммите в ветку main.
+# Обычная правка текста через веб-интерфейс GitHub — это тоже коммит в main,
+# поэтому ничего дополнительно запускать не нужно.
+#
+# paths-ignore ниже намеренно исключает документацию: файлы .md и каталог
+# docs/ на сайт не попадают, и пересобирать его из-за правки инструкции
+# незачем. Правка любого файла в content/ публикацию запускает.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "private/**"
+      - "**/*.md"
+  workflow_dispatch: {}
+
+# Разрешения, которые нужны GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Если правки идут одна за другой, в очереди остаётся только последняя.
+# cancel-in-progress именно false: уже идущую публикацию обрывать нельзя,
+# иначе сайт может остаться в промежуточном состоянии. Так же сделано
+# в официальном стартовом workflow GitHub для Pages.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Установить зависимости
+        run: pip install -r requirements.txt
+
+      - name: Проверить контент
+        run: python build.py --check
+
+      - name: Собрать сайт
+        run: python build.py
+
+      - name: Проверить результат сборки
+        run: python scripts/verify_build.py
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

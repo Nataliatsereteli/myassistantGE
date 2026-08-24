@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section section--tight">
+  <div class="wrap">
+    {% include "partials/breadcrumbs.html" %}
+    <header style="margin-top: var(--s6); max-width: 62ch">
+      <p class="kicker">{{ page.kicker }}</p>
+      <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ page.title }}</h1>
+      <p class="lead" style="margin-top: var(--s5)">{{ page.lead }}</p>
+    </header>
+  </div>
+</section>
+
+{# --- Пакеты -------------------------------------------------------------- #}
+<section class="section section--tight" style="padding-top: 0">
+  <div class="wrap">
+    <h2 class="h2">{{ t.pricing.packages_head }}</h2>
+    <div class="table-scroll" style="margin-top: var(--s5)">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th scope="col">{{ t.pricing.columns.service }}</th>
+            <th scope="col">{{ t.pricing.columns.includes }}</th>
+            <th scope="col">{{ t.pricing.columns.price }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in services %}
+          {% set st = t.services[s.id] %}
+          {% set pk = pricing.packages[s.price] %}
+          <tr>
+            <th scope="row" style="font-weight:600">
+              <a href="{{ base }}/{{ lang }}/{{ t.pages.services.slug }}/{{ st.slug }}/">{{ st.name }}</a>
+            </th>
+            <td class="small">{{ st.short }}</td>
+            <td>
+              <span class="amount">{% if pk.get('from') %}{{ ui.price_from.format(price=(pk.amount | money)) }}{% else %}{{ pk.amount | money }}{% endif %}</span>
+              {% if pk.get('per') == 'month' %}<br><span class="small muted">{{ ui.per_month }}</span>{% endif %}
+              {% if pk.get('bundle_amount') %}<br><span class="small muted">{{ pk.bundle_amount | money }} / {{ pk.bundle_months }} {{ ui.months }}</span>{% endif %}
+              {% for tier in pk.get('tiers', []) %}
+              <br><span class="small muted">{{ t.pricing.tiers[tier.key] }} — {{ tier.amount | money }}</span>
+              {% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# --- Отдельные услуги ---------------------------------------------------- #}
+<section class="section section--tight" style="padding-top: 0">
+  <div class="wrap">
+    <h2 class="h2">{{ t.pricing.extras_head }}</h2>
+    <p class="small muted" style="margin-top: var(--s3); max-width: 60ch">{{ t.pricing.extras_lead }}</p>
+    <div class="table-scroll" style="margin-top: var(--s5)">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th scope="col">{{ t.pricing.columns.service }}</th>
+            <th scope="col">{{ t.pricing.columns.price }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for e in pricing.extras %}
+          <tr>
+            <th scope="row" style="font-weight:400">{{ t.pricing.extras[e.key] }}</th>
+            <td>
+              <span class="amount">
+                {%- if e.get('custom') %}{{ ui.individually }}
+                {%- elif e.get('percent') %}{{ price_percent(e.min, e.get('max')) }}
+                {%- else %}{{ price_range(e.min, e.get('max')) }}{% endif -%}
+              </span>
+              {% if e.get('per') == 'visit' %}<br><span class="small muted">{{ ui.per_visit }}</span>{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout" style="margin-top: var(--s6)">{{ t.pricing.disclaimer }}</div>
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

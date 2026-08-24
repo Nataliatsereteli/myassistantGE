@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section section--tight">
+  <div class="wrap">
+    {% include "partials/breadcrumbs.html" %}
+    <header style="margin-top: var(--s6); max-width: 60ch">
+      <p class="kicker">{{ page.kicker }}</p>
+      <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ page.title }}</h1>
+      <p class="lead" style="margin-top: var(--s5)">{{ page.lead }}</p>
+    </header>
+
+    <div class="faq" style="margin-top: var(--s7); max-width: 900px">
+      {% for q in faq_items %}
+      <details class="faq__item"{% if loop.first %} open{% endif %}>
+        <summary class="faq__q">{{ q.q }}</summary>
+        <div class="faq__a"><p>{{ q.a }}</p></div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

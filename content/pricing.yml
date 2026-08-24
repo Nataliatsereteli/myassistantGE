@@ -1,0 +1,68 @@
+# =============================================================================
+#  ЦЕНЫ — единственное место, где указаны суммы.
+#  Названия услуг и подписи к строкам прайса переводятся в content/i18n/*.yml.
+#  Здесь только числа: поменяли один раз — изменилось на всех трёх языках,
+#  на главной, в карточках услуг, в прайсе и в микроразметке для Google.
+# =============================================================================
+
+currency:
+  code: "GEL"
+  symbol: "₾"
+  # Как печатать сумму. {value} — число, {symbol} — знак валюты.
+  format: "{value} {symbol}"
+  thousands_separator: " "
+
+# --- Пакеты услуг ------------------------------------------------------------
+# Ключи должны совпадать с полем price в content/services.yml.
+#   amount        — основная цена
+#   from: true    — показывать «от 1 500 ₾»
+#   per: month    — показывать «в месяц»
+#   bundle_*      — выгодное предложение при оплате за несколько месяцев
+#   consult/full  — если у услуги две ступени (консультация и сопровождение)
+packages:
+
+  start:
+    amount: 250
+
+  residence:
+    amount: 500
+
+  business:
+    amount: 1000
+
+  manager:
+    amount: 600
+    per: month
+    bundle_months: 3
+    bundle_amount: 1500
+
+  vip:
+    amount: 1500
+    from: true
+
+  work_permit:
+    amount: 100
+    from: true
+    tiers:
+      - key: consult
+        amount: 100
+      - key: full
+        amount: 300
+
+# --- Отдельные услуги (страница «Цены») --------------------------------------
+# key   — ссылка на подпись в i18n -> pricing.extras.<key>
+# min/max — диапазон; если max не указан, печатается одна сумма
+# custom: true  — вместо цены выводится «индивидуально»
+# percent: true — печатается как надбавка в процентах
+extras:
+  - { key: ip_registration,       min: 100, max: 150 }
+  - { key: residence_application, min: 250, max: 350 }
+  - { key: residence_full,        min: 500, max: 700 }
+  - { key: work_permit_support,   min: 300, max: 500 }
+  - { key: bank_account,          min: 100, max: 150 }
+  - { key: gov_visit,             min: 100, max: 150, per: visit }
+  - { key: fill_documents,        min: 50,  max: 100 }
+  - { key: check_documents,       min: 50,  max: 100 }
+  - { key: translation,           custom: true }
+  - { key: notarisation,          custom: true }
+  - { key: rush,                  min: 20,  max: 40, percent: true }

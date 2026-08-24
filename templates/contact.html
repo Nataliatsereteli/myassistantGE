@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section section--tight">
+  <div class="wrap">
+    {% include "partials/breadcrumbs.html" %}
+    <div class="editorial" style="margin-top: var(--s6); align-items: start">
+      <div>
+        <p class="kicker">{{ page.kicker }}</p>
+        <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ page.title }}</h1>
+        <p class="lead" style="margin-top: var(--s5)">{{ page.lead }}</p>
+
+        <ul class="contact-list" style="margin-top: var(--s6)">
+          {% for c in contact_links %}
+          <li>
+            <a href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>
+              {%- include "partials/icons/" ~ c.icon ~ ".svg" -%}
+              <span class="k">{{ c.label }}</span>
+              <span class="v" dir="ltr">{{ c.value }}</span>
+            </a>
+          </li>
+          {% endfor %}
+          <li>
+            <div>
+              {%- include "partials/icons/pin.svg" -%}
+              <span class="k">{{ ui.city }}</span>
+              <span class="v">{{ t.contacts.city }}</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              {%- include "partials/icons/clock.svg" -%}
+              <span class="k">{{ ui.hours }}</span>
+              <span class="v">{{ t.contacts.hours_long }}</span>
+            </div>
+          </li>
+        </ul>
+
+        {% if contacts.map_url %}
+        <div class="btn-row" style="margin-top: var(--s5)">
+          <a class="btn btn--quiet" href="{{ contacts.map_url }}" target="_blank" rel="noopener">{{ ui.open_map }}</a>
+        </div>
+        {% endif %}
+
+        <div class="callout" style="margin-top: var(--s6)">{{ page.note }}</div>
+      </div>
+
+      <aside>
+        {% if site.forms.provider != 'none' %}
+        {% include "partials/lead-form.html" %}
+        {% else %}
+        <div class="card card--filled">
+          <p class="kicker kicker--bare">{{ page.no_form_title }}</p>
+          <p class="card__body">{{ page.no_form_body }}</p>
+          <div class="btn-row" style="margin-top: var(--s4)">
+            {% for c in contact_links[:2] %}
+            <a class="btn {{ 'btn--primary' if loop.first else 'btn--ghost' }}" href="{{ c.href }}"
+               {% if c.href.startswith('http') %}target="_blank" rel="noopener"{% endif %}>{{ c.label }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}

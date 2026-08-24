@@ -1,0 +1,130 @@
+  # --------------------------------------------------------------- 01 -------
+  start:
+    slug: "start-in-georgia"
+    name: "Start in Georgia"
+    short: "Your first administrative steps: IE registration and a clear plan"
+    service_type: "Individual entrepreneur registration"
+    tagline: >-
+      For people already in Georgia who want the urgent
+      admin dealt with, without learning the system from scratch.
+    summary: >-
+      Arranging your registration as an individual entrepreneur, the list of
+      documents you need, preparing the applications, dealing with the
+      government offices and tracking the registration through to the end.
+    seo_title: "Register as an individual entrepreneur in Georgia (Tbilisi)"
+    seo_description: >-
+      Help registering as an individual entrepreneur (sole proprietor) in
+      Georgia: the document list, the applications, the offices, a fixed price
+      in lari.
+    duration: "Usually 1–3 working days once the documents are together"
+    format: "Online, plus one visit if it is needed"
+    for_whom:
+      - >-
+        You have arrived in Georgia and need a legal form for working
+        and earning quickly — most often that is individual entrepreneur
+        status.
+      - >-
+        You do not want to study regulations, turn up at the Public Service Hall
+        on spec and find out on the spot which document is missing.
+    includes:
+      - "Arranging your registration as an individual entrepreneur (IE)"
+      - "A list of the documents required for your specific situation"
+      - "Help preparing the applications"
+      - "Dealing with the relevant government offices"
+      - "Tracking the registration until the extract is issued"
+    excludes: >-
+      State fees and the services of a notary and a translator are paid
+      separately, at actual cost.
+    steps:
+      - "A short conversation about your planned work and expected income"
+      - "The document list and which of them need translating"
+      - "Preparing and filing the application"
+      - "Collecting the extract and explaining what comes next"
+    result: >-
+      Registered IE status, an extract from the register
+      and a clear next step — tax, bank or residence permit.
+    faq:
+      - q: "Do I need a residence permit to register as an IE in Georgia?"
+        a: >-
+          Usually no: registering as an individual entrepreneur and getting
+          a residence permit are separate procedures. But the document set
+          depends on your stay status, so I work it out case by case.
+      - q: "Will I get the 1% tax straight away?"
+        a: >-
+          Small business status (1% tax) is granted separately and not for every
+          type of activity. In the consultation I explain whether it fits you,
+          and what has to be done about it at registration.
+      - q: "Can I do the IE and the residence permit together?"
+        a: >-
+          Yes, that is what the Business / Residence permit package is for —
+          registration, tax, bank and the permit application as one process.
+
+  # --------------------------------------------------------------- 02 -------
+  # --------------------------------------------------------------- 02 -------
+  residence:
+    slug: "residence-permit-georgia"
+    name: "Residence permit, start to finish"
+    short: "Full administrative support for your residence permit application"
+    service_type: "Residence permit application support"
+    tagline: >-
+      You gather your personal documents — everything else on the residence
+      permit application is done by me.
+    summary: >-
+      Full administrative support through the residence permit process:
+      checking your documents, preparing the application, arranging translation
+      and notarisation, dealing with the government offices and tracking
+      the decision.
+    seo_title: "Residence permit in Georgia — full application support"
+    seo_description: >-
+      Residence permit in Georgia, start to finish: document check,
+      application preparation, translation and notarisation, filing, and
+      tracking the decision.
+    duration: "3–7 days to prepare, then the agency's own review period"
+    format: "Online, with support at the filing itself"
+    for_whom:
+      - >-
+        You need a residence permit and you want the application to land first
+        time — no returns over the format of a document, a translation
+        or the wrong grounds being stated.
+      - >-
+        Or you have already filed on your own, been refused, and could not work
+        out what exactly to fix.
+    includes:
+      - "Checking the documents you need"
+      - "Preparing the application"
+      - "Arranging document translation and notarisation"
+      - "Dealing with the government offices"
+      - "Support through the filing itself"
+      - "Tracking the review of your application"
+      - "Help if further documents are requested"
+    excludes: >-
+      State fees, translator and notary services and other third-party costs
+      are not included in the price of the service.
+    steps:
+      - "We settle the grounds on which a permit is open to you"
+      - "We check the set and find the weak spots before filing"
+      - "Translations, notary, application"
+      - "Filing and tracking through to the decision"
+    result: >-
+      An application filed with a complete set, a status you can follow
+      and a fast response if the agency asks for anything more.
+    note: >-
+      If a permit is not available to you on your grounds, I will say so
+      before we start and suggest alternatives, rather than file and hope.
+    faq:
+      - q: "Which grounds for a residence permit suit me?"
+        a: >-
+          There are several — work, study, business, family, property
+          and others. Which one fits you depends on citizenship, income,
+          family situation and plans. That is the first thing we establish.
+      - q: "What do I do if further documents are requested?"
+        a: >-
+          That is a normal part of the procedure. I take the request, explain
+          what exactly is needed, and help you gather and send it fast, in time.
+      - q: "Is renewal included in this service?"
+        a: >-
+          This service covers one filing. I keep an eye on expiry dates
+          in the Personal manager and VIP support packages,
+          or a renewal can be ordered separately.
+
+  # --------------------------------------------------------------- 03 -------

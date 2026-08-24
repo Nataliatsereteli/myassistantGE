@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section section--tight">
+  <div class="wrap">
+    {% include "partials/breadcrumbs.html" %}
+    <header style="margin-top: var(--s6); max-width: 60ch">
+      <p class="kicker">{{ t.pages.services.kicker }}</p>
+      <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ t.pages.services.title }}</h1>
+      <p class="lead" style="margin-top: var(--s5)">{{ t.pages.services.lead }}</p>
+    </header>
+  </div>
+</section>
+
+<section class="section section--tight" style="padding-top: 0">
+  <div class="wrap">
+    {% include "partials/service-index.html" %}
+    <p class="small muted" style="margin-top: var(--s5); max-width: 62ch">{{ t.pages.services.note }}</p>
+    <div class="btn-row" style="margin-top: var(--s5)">
+      <a class="btn btn--quiet" href="{{ base }}/{{ lang }}/{{ t.pages.prices.slug }}/">{{ t.pages.services.prices_cta }}</a>
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

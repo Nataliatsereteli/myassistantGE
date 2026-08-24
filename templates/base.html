@@ -1,0 +1,109 @@
+{#
+  Базовый шаблон. Всё общее для всех страниц: <head>, шапка, подвал, разметка
+  для поисковиков.
+
+  Заголовки и описания для поисковиков НЕ задаются в шаблонах — они приходят
+  готовыми из build.py (переменная seo), а тексты берутся из content/i18n/*.yml.
+  Страницам остаётся только блок content.
+#}<!doctype html>
+<html lang="{{ lang }}" class="no-js" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+{# Метка снимается сразу же. Если JS выключен, она остаётся, и CSS показывает
+   мобильное меню развёрнутым — иначе на телефоне без JS не было бы навигации. #}
+<script>document.documentElement.classList.remove("no-js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}">
+
+{# --- канонический адрес и языковые версии ------------------------------- #}
+<link rel="canonical" href="{{ canonical }}">
+{% for l, href in alternates.items() %}
+<link rel="alternate" hreflang="{{ l }}" href="{{ href }}">
+{% endfor %}
+{% if site.x_default in alternates %}
+<link rel="alternate" hreflang="x-default" href="{{ alternates[site.x_default] }}">
+{% endif %}
+
+{% if route.get('noindex') or not site.allow_indexing %}
+<meta name="robots" content="noindex, nofollow">
+{% else %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+{% endif %}
+
+{# --- соцсети ------------------------------------------------------------- #}
+<meta property="og:type" content="{{ seo.og_type }}">
+<meta property="og:site_name" content="{{ site.brand.name }}">
+<meta property="og:title" content="{{ seo.title }}">
+<meta property="og:description" content="{{ seo.description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:locale" content="{{ site.locales[lang] }}">
+{% for l in langs if l != lang %}
+<meta property="og:locale:alternate" content="{{ site.locales[l] }}">
+{% endfor %}
+<meta property="og:image" content="{{ base_url }}{{ base }}/assets/img/og-{{ lang }}.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ site.brand.name }} — {{ t.meta.tagline }}">
+<meta name="twitter:card" content="summary_large_image">
+
+{# --- иконки и цвет интерфейса -------------------------------------------- #}
+<link rel="icon" href="{{ base }}/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="{{ base }}/assets/img/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="{{ base }}/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="{{ base }}/{{ lang }}/site.webmanifest">
+<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14120e" media="(prefers-color-scheme: dark)">
+
+{# --- шрифты и стили ------------------------------------------------------
+   fonts.css подключён отдельным тегом, а не через @import: так браузер
+   запрашивает оба файла параллельно, и версия ?v= работает для обоих. #}
+<link rel="preload" href="{{ base }}/assets/fonts/{{ preload_font }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ base }}/assets/fonts/fonts.css?v={{ asset_v }}">
+<link rel="stylesheet" href="{{ base }}/assets/css/site.css?v={{ asset_v }}">
+
+{# --- структурированные данные -------------------------------------------- #}
+<script type="application/ld+json">
+{%- include "partials/schema-base.json" -%}
+</script>
+
+{% if site.analytics.provider == 'plausible' and site.analytics.domain %}
+<script defer data-domain="{{ site.analytics.domain }}" src="{{ site.analytics.script }}"></script>
+{% elif site.analytics.provider == 'umami' and site.analytics.website_id %}
+<script defer data-website-id="{{ site.analytics.website_id }}" src="{{ site.analytics.script }}"></script>
+{% elif site.analytics.provider == 'ga4' and site.analytics.measurement_id %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.measurement_id }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ site.analytics.measurement_id }}');</script>
+{% endif %}
+{% if site.verification.google %}<meta name="google-site-verification" content="{{ site.verification.google }}">{% endif %}
+{% if site.verification.yandex %}<meta name="yandex-verification" content="{{ site.verification.yandex }}">{% endif %}
+</head>
+
+<body>
+<div class="grain" aria-hidden="true"></div>
+<a class="skip-link" href="#main">{{ ui.skip_to_content }}</a>
+
+<div class="page">
+  {% include "partials/header.html" %}
+
+  <main id="main">
+{% block content %}{% endblock %}
+  </main>
+
+  {% include "partials/footer.html" %}
+</div>
+
+{% set fab_links = (contact_links | selectattr('key', 'equalto', 'whatsapp') | list)
+                 or (contact_links | selectattr('key', 'equalto', 'telegram') | list)
+                 or contact_links %}
+{% if fab_links %}
+<a class="fab" data-fab href="{{ fab_links[0].href }}" rel="noopener" target="_blank">
+  {%- include "partials/icons/chat.svg" -%}
+  <span>{{ ui.write_to_me }}</span>
+</a>
+{% endif %}
+
+<script src="{{ base }}/assets/js/site.js?v={{ asset_v }}" defer></script>
+</body>
+</html>

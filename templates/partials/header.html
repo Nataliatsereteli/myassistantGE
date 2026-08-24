@@ -1,0 +1,45 @@
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="{{ base }}/{{ lang }}/" aria-label="{{ site.brand.name }} — {{ ui.home }}">
+      <span class="brand__mark">{{ site.brand.name }}<span class="dot">.</span></span>
+      <span class="brand__tag">{{ t.meta.tagline_short }}</span>
+    </a>
+
+    <nav class="nav" aria-label="{{ ui.main_nav }}">
+      {% for item in nav %}
+      <a href="{{ item.url }}"{% if route.key == item.key %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="lang">
+      {% for l in langs %}
+      <a href="{{ alt_paths.get(l, '/' ~ l ~ '/') }}"
+         hreflang="{{ l }}"
+         lang="{{ l }}"
+         {% if l == lang %}aria-current="true"{% endif %}
+         title="{{ site.language_names[l] }}">{{ site.language_codes[l] }}</a>
+      {% endfor %}
+    </div>
+
+    <button class="burger" data-burger type="button" aria-expanded="false"
+            aria-controls="mobile-nav" aria-label="{{ ui.menu }}">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+    <div class="wrap">
+      <ul>
+        {% for item in nav %}
+        <li><a href="{{ item.url }}"{% if route.key == item.key %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+      <div class="btn-row" style="margin-top: var(--s5)">
+        {% for c in contact_links[:2] %}
+        <a class="btn {{ 'btn--primary' if loop.first else 'btn--ghost' }}" href="{{ c.href }}"
+           {% if c.href.startswith('http') %}target="_blank" rel="noopener"{% endif %}>{{ c.label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</header>

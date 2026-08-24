@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section section--tight">
+  <div class="wrap">
+    {% include "partials/breadcrumbs.html" %}
+
+    <div class="about" style="margin-top: var(--s6)">
+      {% include "partials/person.html" %}
+
+      <div>
+        <p class="kicker">{{ page.kicker }}</p>
+        <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ page.title }}</h1>
+        <div class="prose" style="margin-top: var(--s5)">
+          {% for p in page.body %}
+          <p>{{ p }}</p>
+          {% endfor %}
+        </div>
+
+        <blockquote class="quote">
+          <p>{{ t.home.about.quote }}</p>
+          <footer>
+            {% include "partials/signature.html" %}
+            <span class="signature__caption">{{ t.home.about.signature_caption }}</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <hr class="arcade" style="margin-top: var(--s8)" aria-hidden="true">
+
+    <div class="cards cards--2" style="margin-top: var(--s7)">
+      <div class="card card--filled">
+        <p class="kicker kicker--bare">{{ page.facts_title }}</p>
+        <div style="margin-top: var(--s3)">
+          {% for f in page.facts %}
+          <div class="dossier__row"{% if not loop.first %} style="border-top: 1px solid var(--rule)"{% endif %}>
+            <span class="dossier__k">{{ f.k }}</span>
+            <span class="dossier__v">{{ f.v }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="kicker kicker--bare">{{ page.principles_title }}</p>
+        <ul class="checklist" style="margin-top: var(--s3)">
+          {% for p in page.principles %}
+          <li>{{ p }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

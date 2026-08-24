@@ -1,0 +1,68 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+
+      <div>
+        <a class="brand" href="{{ base }}/{{ lang }}/">
+          <span class="brand__mark">{{ site.brand.name }}<span class="dot">.</span></span>
+        </a>
+        <p class="small" style="margin-top: var(--s3); max-width: 34ch">{{ t.footer.about }}</p>
+
+        <ul class="contact-list" style="margin-top: var(--s5)">
+          {% for c in contact_links %}
+          <li>
+            <a href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>
+              {% include "partials/icons/" ~ c.icon ~ ".svg" %}
+              <span class="v" dir="ltr">{{ c.value }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__head">{{ t.footer.services_head }}</p>
+        <ul>
+          {% for s in services %}
+          {% set st = t.services[s.id] %}
+          <li><a href="{{ base }}/{{ lang }}/{{ t.pages.services.slug }}/{{ st.slug }}/">{{ st.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__head">{{ t.footer.nav_head }}</p>
+        <ul>
+          {% for item in nav %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+
+        <p class="footer__head" style="margin-top: var(--s5)">{{ t.footer.lang_head }}</p>
+        <ul>
+          {% for l in langs %}
+          <li><a href="{{ alt_paths.get(l, '/' ~ l ~ '/') }}" hreflang="{{ l }}" lang="{{ l }}">{{ site.language_names[l] }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+    {# Юридические документы — в нижней строке подвала: там их ищут,
+       и оттуда они доступны с любой страницы сайта. #}
+    <div class="footer__legal">
+      <span>© {{ now_year }} {{ site.legal.entity_name }}{% if site.legal.tax_id %} · {{ t.footer.tax_id_label }} {{ site.legal.tax_id }}{% endif %}</span>
+
+      <nav class="footer__docs" aria-label="{{ t.footer.legal_head }}">
+        {% if t.pages.privacy %}
+        <a href="{{ base }}/{{ lang }}/{{ t.pages.privacy.slug }}/">{{ t.pages.privacy.nav_title }}</a>
+        {% endif %}
+        {% if t.pages.terms %}
+        <a href="{{ base }}/{{ lang }}/{{ t.pages.terms.slug }}/">{{ t.pages.terms.nav_title }}</a>
+        {% endif %}
+      </nav>
+
+      <span>{{ t.footer.disclaimer }}</span>
+    </div>
+  </div>
+</footer>

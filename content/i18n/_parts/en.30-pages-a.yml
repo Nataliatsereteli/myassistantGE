@@ -1,0 +1,110 @@
+  home:
+    title: "Home"
+    nav_title: "Home"
+    seo_title: "Residence Permit, IE & Work Permit Help in Georgia"
+    seo_description: >-
+      Personal case manager in Georgia: residence permits, IE registration,
+      special labour permit, bank accounts, taxes. Fixed prices in lari.
+      RU/KA/EN.
+
+  services:
+    slug: "services"
+    title: "Services and prices for support in Georgia"
+    nav_title: "Services"
+    kicker: "Catalogue"
+    seo_title: "Services and Prices: Residence & Work Permits in Georgia"
+    seo_description: >-
+      Six formats: starting out, residence permit, business and residence
+      permit, personal manager, VIP support, special labour permit.
+      Fixed prices in lari.
+    lead: >-
+      Every service is a complete procedure with a clear result.
+      Below is what is included and what it costs.
+    note: >-
+      State fees and the fees of the notary and translator are not included
+      in the price and are paid separately at their actual cost.
+    prices_cta: "Price list for single services"
+
+  prices:
+    slug: "prices"
+    title: "Prices"
+    nav_title: "Prices"
+    kicker: "Price list"
+    seo_title: "Prices in Georgia: Residence Permit, IE, Work Permit"
+    seo_description: >-
+      Full price list in Georgian lari: IE registration 100–150 ₾, residence
+      permit application 250–350 ₾, full residence permit support 500–700 ₾.
+    lead: >-
+      All prices are in Georgian lari, with no hidden parts. Packages come
+      first, then single services if you only need one procedure.
+
+  about:
+    slug: "about"
+    title: "About me"
+    nav_title: "About"
+    kicker: "Who I am"
+    seo_title: "About me — personal case manager for expats in Georgia"
+    seo_description: >-
+      Nata, personal case manager in Georgia. Administrative support for
+      foreign nationals: residence permit, IE, work permit, banking, taxes.
+      Not a lawyer.
+    body:
+      - >-
+        My name is Natalia Tsereteli. I live in Georgia and I work as a personal manager
+        handling administrative matters for foreign nationals.
+      - >-
+        People come to me in one of two states. The first is “I have just
+        arrived and I don’t know where to start.” The second is “I tried on my
+        own and was refused, or I am stuck.” In both cases the job is the same:
+        to turn uncertainty into a list of concrete steps with dates.
+      - >-
+        What I do: I collect and check documents, fill in applications,
+        arrange translation and notarisation, book appointments,
+        deal with government offices, track how applications are progressing,
+        prepare you for interviews, and watch the expiry dates on your documents.
+      - >-
+        What I don’t do: I don’t represent anyone in court, I don’t give legal
+        opinions, I don’t keep your books and I don’t promise decisions that are
+        made by government bodies. If you need that kind of help, I will say so
+        straight away and recommend a lawyer or auditor I have worked with.
+      - >-
+        I work in Tbilisi and Batumi, and on most matters remotely.
+        I speak Russian and English; with the agencies, Georgian.
+    facts_title: "In brief"
+    facts:
+      - k: "Where"
+        v: "Tbilisi, Batumi"
+      - k: "Languages"
+        v: "RU · KA · EN"
+      - k: "Status"
+        v: "Individual entrepreneur (sole proprietor), Georgia"
+      - k: "Format"
+        v: "Online and in person"
+    principles_title: "Rules I stick to"
+    principles:
+      - "I quote the full cost before the work starts"
+      - "I don’t take a case if I see no lawful route to the result"
+      - "I don’t promise deadlines that are set by the agency"
+      - "I don’t pass client data or documents to third parties without consent"
+      - "I say so when a task can be handled without me"
+
+  contact:
+    slug: "contact"
+    title: "Contact"
+    nav_title: "Contact"
+    kicker: "Get in touch"
+    seo_title: "Contact — administrative support for expats in Georgia"
+    seo_description: >-
+      Message me on WhatsApp or Telegram, call, or send an email.
+      Tbilisi and Batumi. Consultations in Russian, Georgian and English.
+    lead: >-
+      The quickest way is a message on WhatsApp or Telegram: describe your
+      situation briefly and what you need. I will tell you which basis fits
+      and what it costs.
+    note: >-
+      Please don’t send scans of passports or other documents in your first
+      message. We discuss the task first, then I tell you exactly
+      what will be needed.
+    no_form_title: "Message me directly"
+    no_form_body: >-
+      WhatsApp or Telegram is the fastest way. I reply during working hours, usually the same day.

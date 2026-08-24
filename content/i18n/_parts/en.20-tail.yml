@@ -1,0 +1,81 @@
+cta:
+  kicker: "First step"
+  title: "Tell me what your situation is"
+  lead: >-
+    Write a couple of lines: your citizenship, what you need and by when.
+    I will tell you which route fits, what it takes and what it costs.
+  note: >-
+    The first conversation is there to understand the task, and commits you to nothing.
+
+# =============================================================================
+#  СТРАНИЦЫ
+#  slug — часть адреса. Менять можно, но старая ссылка перестанет работать.
+# =============================================================================
+pricing:
+  packages_head: "Support packages"
+  extras_head: "Individual services"
+  extras_lead: >-
+    If you need one specific procedure, you can order it on its own.
+    The range depends on how complex the case is and how many documents are involved.
+  columns:
+    service: "Service"
+    includes: "In short"
+    price: "Price"
+  tiers:
+    consult: "Consultation"
+    full: "Full support"
+  extras:
+    ip_registration: "Registration as an individual entrepreneur (IE)"
+    residence_application: "Preparing a residence permit application"
+    residence_full: "Full support through the residence permit process"
+    work_permit_support: "Support with the right to work (special labour permit)"
+    bank_account: "Help opening a bank account"
+    gov_visit: "Accompaniment to a government office"
+    fill_documents: "Filling in documents"
+    check_documents: "Document check"
+    translation: "Arranging document translation"
+    notarisation: "Arranging notarisation of documents"
+    rush: "Rush service"
+  disclaimer: >-
+    All prices are in Georgian lari (₾) and cover my work only.
+    State fees, notary and translator services and bank charges
+    are paid separately at actual cost, and are always named
+    before the work starts.
+
+# =============================================================================
+#  ФОРМА ЗАЯВКИ (показывается, если в site.yml настроен сервис форм)
+# =============================================================================
+form:
+  title: "Short enquiry"
+  subject: "Enquiry from the site"
+  name: "What should I call you"
+  name_ph: "Name"
+  contact: "How to reply"
+  contact_ph: "WhatsApp, Telegram or email"
+  contact_hint: "I reply the same way you write to me"
+  service: "What you need"
+  service_any: "Not sure yet — I need advice"
+  service_other: "Something else"
+  message: "Your situation in brief"
+  message_ph: "Citizenship, what you need and by when"
+  submit: "Send"
+  sending: "Sending…"
+  ok: "Thank you, your enquiry has arrived. I will reply during working hours."
+  fail: "The message did not go through. Please write to me on WhatsApp or Telegram."
+  consent: "By sending this form you agree to your details being processed so that I can reply."
+
+# =============================================================================
+#  ПОДВАЛ
+# =============================================================================
+footer:
+  about: >-
+    Personal administrative support for foreign nationals in Georgia:
+    residence permits, IE registration, right to work, banking and taxes.
+  services_head: "Services"
+  nav_head: "Sections"
+  lang_head: "Language"
+  legal_head: "Legal documents"
+  tax_id_label: "ID"
+  disclaimer: >-
+    Administrative support. Not a law firm
+    and not a government agency.

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap wrap--narrow" style="text-align: center">
+    <p class="kicker kicker--bare" style="justify-content: center">{{ page.kicker }}</p>
+    <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ page.title }}</h1>
+    <p class="lead" style="margin-top: var(--s5)">{{ page.lead }}</p>
+    <div class="btn-row" style="margin-top: var(--s6); justify-content: center">
+      <a class="btn btn--primary" href="{{ base }}/{{ lang }}/">{{ ui.home }}</a>
+      {% for c in contact_links[:1] %}
+      <a class="btn btn--ghost" href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>{{ c.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

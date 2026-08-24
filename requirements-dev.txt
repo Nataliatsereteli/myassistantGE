@@ -1,0 +1,3 @@
+# Только для scripts/make_images.py — генерация иконок и карточек соцсетей.
+-r requirements.txt
+Pillow>=10.0

@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set svc_url = base ~ "/" ~ lang ~ "/" ~ t.pages.services.slug ~ "/" %}
+
+<section class="section section--tight">
+  <div class="wrap">
+    {% include "partials/breadcrumbs.html" %}
+
+    <div class="editorial" style="margin-top: var(--s6); align-items: start">
+      <header>
+        <p class="kicker">{{ t.pages.services.nav_title }} · {{ "%02d"|format(service.order) }}</p>
+        <h1 class="h1" style="margin-top: var(--s4)">{{ svc.name }}</h1>
+        <p class="lead" style="margin-top: var(--s4)">{{ svc.tagline }}</p>
+
+        <div class="btn-row" style="margin-top: var(--s6)">
+          <a class="btn btn--primary" href="#contact">{{ ui.order }}</a>
+          <a class="btn btn--ghost" href="{{ svc_url }}">{{ ui.all_services }}</a>
+        </div>
+      </header>
+
+      {# Правая колонка: цена и сухие параметры услуги. #}
+      <aside class="dossier">
+        <div class="dossier__row">
+          <span class="dossier__k">{{ ui.price }}</span>
+          <span class="dossier__v">
+            {%- if svc_price.get('from') %}{{ ui.price_from.format(price=(svc_price.amount | money)) }}{% else %}{{ svc_price.amount | money }}{% endif -%}
+            {%- if svc_price.get('per') == 'month' %} / {{ ui.month }}{% endif -%}
+          </span>
+        </div>
+        {% if svc_price.get('bundle_amount') %}
+        <div class="dossier__row">
+          <span class="dossier__k">{{ ui.bundle }}</span>
+          <span class="dossier__v">{{ svc_price.bundle_amount | money }} / {{ svc_price.bundle_months }} {{ ui.months }}</span>
+        </div>
+        {% endif %}
+        {% for tier in svc_price.get('tiers', []) %}
+        <div class="dossier__row">
+          <span class="dossier__k">{{ t.pricing.tiers[tier.key] }}</span>
+          <span class="dossier__v">{{ tier.amount | money }}</span>
+        </div>
+        {% endfor %}
+        {% if svc.duration %}
+        <div class="dossier__row">
+          <span class="dossier__k">{{ ui.duration }}</span>
+          <span class="dossier__v">{{ svc.duration }}</span>
+        </div>
+        {% endif %}
+        {% if svc.format %}
+        <div class="dossier__row">
+          <span class="dossier__k">{{ ui.format }}</span>
+          <span class="dossier__v">{{ svc.format }}</span>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{# ---------------------------------------------------------- ДЛЯ КОГО ----- #}
+<section class="section">
+  <div class="wrap">
+    <div class="editorial" style="align-items: start">
+      <div>
+        <p class="kicker">{{ ui.for_whom }}</p>
+        <div class="prose" style="margin-top: var(--s4)">
+          {% for p in svc.for_whom %}
+          <p>{{ p }}</p>
+          {% endfor %}
+        </div>
+
+        <h2 class="h2" style="margin-top: var(--s7)">{{ ui.included }}</h2>
+        <ul class="checklist" style="margin-top: var(--s5)">
+          {% for i in svc.includes %}
+          <li>{{ i }}</li>
+          {% endfor %}
+        </ul>
+
+        {% if svc.get('excludes') %}
+        <div class="callout" style="margin-top: var(--s6)">
+          <strong>{{ ui.not_included }}.</strong> {{ svc.excludes }}
+        </div>
+        {% endif %}
+
+        {% if svc.get('note') %}
+        <div class="callout" style="margin-top: var(--s4)">{{ svc.note }}</div>
+        {% endif %}
+      </div>
+
+      <aside>
+        {% if svc.get('steps') %}
+        <p class="kicker kicker--bare">{{ ui.how_it_goes }}</p>
+        <ol class="steps" style="margin-top: var(--s3)">
+          {% for s in svc.steps %}
+          <li class="steps__item"><div><p class="steps__title">{{ s }}</p></div></li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+
+        {% if svc.get('result') %}
+        <div class="card card--filled" style="margin-top: var(--s5)">
+          <p class="kicker kicker--bare">{{ ui.result }}</p>
+          <p class="card__body">{{ svc.result }}</p>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{# ---------------------------------------------------------- ВОПРОСЫ ------ #}
+{% if faq_items %}
+<section class="section">
+  <div class="wrap">
+    <div class="editorial">
+      <div>
+        <p class="kicker">{{ ui.faq_title }}</p>
+        <h2 class="h1" style="margin-top: var(--s4)">{{ svc.faq_title | default(ui.faq_title, true) }}</h2>
+      </div>
+      <div class="faq">
+        {% for q in faq_items %}
+        <details class="faq__item">
+          <summary class="faq__q">{{ q.q }}</summary>
+          <div class="faq__a"><p>{{ q.a }}</p></div>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# ------------------------------------------------------ СМЕЖНЫЕ УСЛУГИ -- #}
+{% set related = service.get('related', []) %}
+{% if related %}
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="kicker">{{ ui.related }}</p>
+    <ul class="cards cards--{{ related | length if related | length < 4 else 3 }}" style="margin-top: var(--s5)">
+      {% for rid in related %}
+      {% set rt = t.services[rid] %}
+      {% set rp = pricing.packages[(services | selectattr('id', 'equalto', rid) | first).price] %}
+      <li class="card">
+        <p class="card__title"><a href="{{ svc_url }}{{ rt.slug }}/">{{ rt.name }}</a></p>
+        <p class="card__body">{{ rt.short }}</p>
+        <p class="small" style="margin-top: auto; font-family: var(--font-mono)">
+          {%- if rp.get('from') %}{{ ui.price_from.format(price=(rp.amount | money)) }}{% else %}{{ rp.amount | money }}{% endif -%}
+        </p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% include "partials/cta.html" %}
+{% endblock %}

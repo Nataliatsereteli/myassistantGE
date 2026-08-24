@@ -1,0 +1,83 @@
+# =============================================================================
+#  РУССКАЯ ВЕРСИЯ САЙТА — весь текст на одном языке в одном файле.
+#
+#  Как править:
+#   * меняйте только то, что справа от двоеточия;
+#   * если строка начинается с "- ", это пункт списка: можно добавлять и удалять;
+#   * сохраняйте отступы (только пробелы, не табуляция);
+#   * текст с двоеточием или кавычками внутри — берите в кавычки: "Вот так: да";
+#   * длинный текст можно писать блоком через >- (см. примеры ниже).
+#
+#  ЦЕНЫ здесь не указываются — они в content/pricing.yml (один раз для всех языков).
+#  КОНТАКТЫ здесь не указываются — они в content/contacts.yml.
+# =============================================================================
+
+# --- Служебное: как сайт представляется поисковикам и соцсетям ---------------
+meta:
+  tagline: "Personal support for foreign nationals in Georgia"
+  tagline_short: "Support in Georgia"
+  description: >-
+    Personal case manager in Tbilisi: residence permits, individual
+    entrepreneur registration, work permits, banking and taxes. Fixed prices
+    in lari.
+  job_title: "Personal manager for administrative matters"
+  audience: "Foreign nationals living in Georgia or planning to move there"
+  choose_language: "Choose language"
+  owner_name: "Natalia Tsereteli"
+  photo_alt: >-
+    Natalia Tsereteli, personal case manager for administrative matters in Georgia
+  # Текст на картинке для соцсетей (генерируется scripts/make_images.py).
+  og:
+    headline: "Personal support in Georgia"
+    facts:
+      - "Residence permit · IE · work permit"
+      - "Fixed prices in lari"
+      - "Tbilisi and Batumi"
+
+# --- Короткие подписи интерфейса --------------------------------------------
+ui:
+  home: "Home"
+  main_nav: "Main navigation"
+  menu: "Menu"
+  skip_to_content: "Skip to content"
+  breadcrumb: "You are here"
+  write_to_me: "Message me"
+  read_more: "More"
+  all_services: "All services"
+  order: "Discuss my situation"
+  from: "from"
+  # How a "from" price is printed. {price} is replaced with the amount.
+  price_from: "from {price}"
+  per_month: "per month"
+  month: "month"
+  months: "mo."
+  per_visit: "per visit"
+  bundle: "If you pay for 3 months"
+  individually: "case by case"
+  price: "Price"
+  duration: "Timeline"
+  format: "Format"
+  included: "What the service includes"
+  not_included: "Not included in the price"
+  for_whom: "Who this service is for"
+  how_it_goes: "How it works"
+  result: "What you get"
+  related: "Related services"
+  faq_title: "Common questions"
+  city: "City"
+  hours: "Working hours"
+  phone: "Phone"
+  open_map: "Open in maps"
+  updated: "Updated"
+  legal_entity: "Provider"
+  photo_placeholder: "Photograph"
+
+# --- Контактные подписи, зависящие от языка ---------------------------------
+contacts:
+  city: "Tbilisi"
+  hours_short: "Mon–Fri 10:00–19:00"
+  hours_long: "Mon–Fri 10:00–19:00, Sat 11:00–16:00 (Tbilisi time)"
+
+# =============================================================================
+#  ГЛАВНАЯ СТРАНИЦА
+# =============================================================================

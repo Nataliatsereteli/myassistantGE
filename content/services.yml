@@ -1,0 +1,56 @@
+# =============================================================================
+#  СТРУКТУРА УСЛУГ.
+#  Здесь только порядок и связи. Названия, описания и адреса страниц —
+#  в content/i18n/<язык>.yml -> services.<id>. Цены — в content/pricing.yml.
+#
+#  Чтобы добавить услугу:
+#    1. добавьте блок сюда (уникальный id);
+#    2. добавьте цену в pricing.yml под тем же ключом, что в поле price;
+#    3. опишите её в КАЖДОМ файле content/i18n/*.yml.
+#  Сборка не пройдёт, если описание отсутствует хотя бы на одном языке —
+#  это защита от «наполовину переведённого» сайта.
+# =============================================================================
+
+items:
+
+  - id: start
+    price: start
+    order: 1
+    featured: true              # выносится на главную крупным блоком
+    icon: doc
+    related: [business, residence]
+
+  - id: residence
+    price: residence
+    order: 2
+    featured: true
+    icon: passport
+    related: [business, manager]
+
+  - id: business
+    price: business
+    order: 3
+    featured: true
+    icon: briefcase
+    related: [start, residence]
+
+  - id: manager
+    price: manager
+    order: 4
+    featured: false
+    icon: calendar
+    related: [vip, residence]
+
+  - id: vip
+    price: vip
+    order: 5
+    featured: false
+    icon: star
+    related: [manager]
+
+  - id: work_permit
+    price: work_permit
+    order: 6
+    featured: true
+    icon: stamp
+    related: [residence, business]

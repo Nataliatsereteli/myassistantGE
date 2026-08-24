@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{# GitHub Pages отдаёт этот файл на любой несуществующий адрес.
+   Поэтому здесь предлагаем сразу три языка — мы не знаем, откуда пришёл человек. #}
+
+{% block content %}
+<section class="section">
+  <div class="wrap wrap--narrow" style="text-align: center">
+    <p class="kicker kicker--bare" style="justify-content: center; font-size: 1rem">404</p>
+    <h1 class="display" style="margin-top: var(--s4); font-size: var(--t-h1)">{{ t.pages.notfound.title }}</h1>
+    <p class="lead" style="margin-top: var(--s5)">{{ t.pages.notfound.summary }}</p>
+    <div class="btn-row" style="margin-top: var(--s6); justify-content: center">
+      {% for l in langs %}
+      <a class="btn {{ 'btn--primary' if l == lang else 'btn--quiet' }}" href="{{ base }}/{{ l }}/" hreflang="{{ l }}" lang="{{ l }}">
+        {{ site.language_names[l] }}
+      </a>
+      {% endfor %}
+    </div>
+    <p class="small muted" style="margin-top: var(--s6)">{{ t.pages.notfound.cta }}</p>
+  </div>
+</section>
+{% endblock %}

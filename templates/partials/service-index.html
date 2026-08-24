@@ -1,0 +1,25 @@
+{#
+  Реестр услуг — фирменный блок сайта.
+  Нумерованный список, как оглавление в деле: номер, название, короткое
+  описание и цена в одну строку. Работает и на главной, и на /услуги/.
+#}
+<ol class="index">
+  {% for s in services %}
+  {% set st = t.services[s.id] %}
+  {% set pk = pricing.packages[s.price] %}
+  <li>
+    <a class="index__item" href="{{ base }}/{{ lang }}/{{ t.pages.services.slug }}/{{ st.slug }}/">
+      <span class="index__num">{{ "%02d"|format(loop.index) }}</span>
+      <span class="index__name">{{ st.name }}</span>
+      <span class="index__desc">{{ st.short }}</span>
+      <span class="index__price">
+        <span class="index__amount">
+          {%- if pk.get('from') %}{{ ui.price_from.format(price=(pk.amount | money)) }}{% else %}{{ pk.amount | money }}{% endif -%}
+        </span>
+        {% if pk.get('per') == 'month' %}<span class="index__from">{{ ui.per_month }}</span>{% endif %}
+      </span>
+      <span class="index__go" aria-hidden="true">{% include "partials/icons/arrow.svg" %}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ol>

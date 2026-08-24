@@ -1,0 +1,132 @@
+  # --------------------------------------------------------------- 03 -------
+  business:
+    slug: "business-and-residence-permit"
+    name: "Business / Residence permit"
+    short: "IE, taxes, bank account, right to work and residence permit — as one process"
+    service_type: "Full administrative support for business set-up and a residence permit"
+    tagline: >-
+      The complete administrative start: from individual entrepreneur
+      registration to a filed residence permit application.
+    summary: >-
+      Individual entrepreneur registration, a first consultation on taxes,
+      registration on the Revenue Service portal and setup of your online
+      account, help with opening a bank account, support with obtaining
+      the right to work, and preparation of the residence permit application.
+    seo_title: "Business and residence permit in Georgia: IE, bank, taxes"
+    seo_description: >-
+      Individual entrepreneur registration in Georgia, tax advice, Revenue
+      Service and bank accounts, the right to work, and the residence permit
+      application.
+    duration: "2–5 weeks, depending on the bank and the agencies"
+    format: "Online + in-person visits where needed"
+    for_whom:
+      - >-
+        You are moving to work or run your business from Georgia, and you need
+        the whole administrative picture at once: status, taxes, an account
+        and legal stay.
+      - >-
+        You would rather not do it piece by piece and then find that one step
+        was done in a way that blocks the next one.
+    includes:
+      - "Registration as an individual entrepreneur (IE, sole proprietor)"
+      - "A first consultation on tax questions"
+      - "Registration on the official Revenue Service site of the Ministry of Finance and setup of your online account"
+      - "Help through the process of opening a bank account"
+      - "Support with obtaining the right to work (special labour permit) and filing the required applications"
+      - "Preparation of the residence permit application"
+      - "Dealing with the government agencies"
+      - "Full control of the whole process"
+    excludes: >-
+      State fees, notary and translator services and bank charges are paid
+      separately, at actual cost.
+    steps:
+      - "We go through the model: what you do, where the income comes from, who your clients are"
+      - "IE registration and the tax regime"
+      - "Revenue Service online account, bank"
+      - "Right to work and the residence permit application"
+    result: >-
+      A registered status, a working online account at the tax office,
+      an open bank account and a filed residence permit application.
+    faq:
+      - q: "Can you guarantee that a bank account will be opened?"
+        a: >-
+          No — the bank decides, and each one has its own requirements for
+          foreign clients. I prepare the file so there are fewer questions,
+          stay with you through the process, and if one bank says no,
+          I suggest the next one.
+      - q: "How is this different from the “Start in Georgia” package?"
+        a: >-
+          “Start” is IE registration only. Here you also get taxes, the online
+          account, the bank, the right to work and the residence permit
+          application — the whole administrative picture.
+      - q: "What if I already have an IE?"
+        a: >-
+          Then part of the work is not needed, and we build the service from
+          separate items in the price list — that comes out cheaper. Write and
+          tell me what is already done.
+
+  # --------------------------------------------------------------- 04 -------
+  # --------------------------------------------------------------- 04 -------
+  manager:
+    slug: "personal-manager"
+    name: "Personal manager"
+    short: "Monthly handling of every administrative matter, for as long as you stay"
+    service_type: "Administrative support on a monthly retainer"
+    tagline: >-
+      You do not order services one at a time — you simply hand the
+      administrative side of life in Georgia over to me.
+    summary: >-
+      Monthly support: dealing with government agencies, preparing documents,
+      filling in applications, arranging appointments and visits, bank matters,
+      coordinating taxes, tracking the expiry dates of your documents, and
+      finding a translator or a lawyer if one is needed.
+    seo_title: "Personal manager in Georgia — monthly admin support"
+    seo_description: >-
+      Monthly administrative support in Tbilisi: government offices,
+      documents, bank, taxes, and deadline tracking for your residence and
+      special labour permits.
+    duration: "Monthly, with no cap on the number of requests under the contract"
+    format: "Constant contact by messenger + meetings"
+    for_whom:
+      - >-
+        Administrative matters keep coming up: renewals, certificates,
+        tax deadlines, documents for the family, visits to the agencies.
+      - >-
+        You would rather have one channel and one person responsible
+        than look for someone new for every task.
+    includes:
+      - "Dealing with the government agencies"
+      - "Preparing documents"
+      - "Filling in applications"
+      - "Arranging appointments and visits"
+      - "Sorting out anything to do with the bank"
+      - "Coordinating tax matters"
+      - "Tracking the expiry dates of the residence permit and other documents"
+      - "Finding a translator or a lawyer where needed"
+      - "Obtaining information from government agencies on the client's behalf in the cases provided for by law"
+    excludes: >-
+      State fees and third-party services are paid separately.
+      Bookkeeping is not included.
+    result: >-
+      Not a single missed deadline, and one person you can write to
+      about any administrative question.
+    note: >-
+      On a 3-month contract the rate is lower —
+      the exact amounts are in the price list.
+    faq:
+      - q: "Is there a limit on requests?"
+        a: >-
+          The scope and its limits are set out in the contract, so both sides
+          know what to expect. Ordinary day-to-day matters are included; large
+          separate procedures (a full new residence permit, for example)
+          are quoted separately.
+      - q: "Can it cover the family?"
+        a: >-
+          Yes. Coordinating administrative matters for family members is part
+          of the package — we agree who is covered at the start.
+      - q: "Can I pause and come back later?"
+        a: >-
+          Yes, it is a monthly arrangement. The terms for pausing
+          are set out in the contract.
+
+  # --------------------------------------------------------------- 05 -------

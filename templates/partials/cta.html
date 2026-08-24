@@ -1,0 +1,52 @@
+{#
+  Финальный блок «давайте поговорим». Одинаковый на всех страницах,
+  поэтому и текст, и кнопки правятся в одном месте — i18n -> cta.
+#}
+<section class="section section--paper2" id="contact" data-index="§ 06">
+  <div class="wrap">
+    <div class="editorial">
+      <div>
+        <p class="kicker">{{ t.cta.kicker }}</p>
+        <h2 class="h1" style="margin-top: var(--s4)">{{ t.cta.title }}</h2>
+        <p class="lead" style="margin-top: var(--s4); max-width: 44ch">{{ t.cta.lead }}</p>
+
+        <div class="btn-row" style="margin-top: var(--s6)">
+          {% for c in contact_links[:2] %}
+          <a class="btn {{ 'btn--primary' if loop.first else 'btn--ghost' }}"
+             href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>
+            {%- include "partials/icons/" ~ c.icon ~ ".svg" -%}
+            <span>{{ c.label }}</span>
+          </a>
+          {% endfor %}
+        </div>
+
+        <p class="small muted" style="margin-top: var(--s4)">{{ t.cta.note }}</p>
+      </div>
+
+      <div>
+        {% if site.forms.provider != 'none' %}
+        {% include "partials/lead-form.html" %}
+        {% else %}
+        <ul class="contact-list">
+          {% for c in contact_links %}
+          <li>
+            <a href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>
+              {%- include "partials/icons/" ~ c.icon ~ ".svg" -%}
+              <span class="k">{{ c.label }}</span>
+              <span class="v" dir="ltr">{{ c.value }}</span>
+            </a>
+          </li>
+          {% endfor %}
+          <li>
+            <div>
+              {%- include "partials/icons/clock.svg" -%}
+              <span class="k">{{ ui.hours }}</span>
+              <span class="v">{{ t.contacts.hours_short }}</span>
+            </div>
+          </li>
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

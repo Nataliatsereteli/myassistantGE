@@ -1,0 +1,139 @@
+  # --------------------------------------------------------------- 05 -------
+  vip:
+    slug: "vip-support"
+    name: "VIP support"
+    short: "Priority contact, in-person visits and coordination of everything around you"
+    service_type: "Priority personal support"
+    tagline: >-
+      Maximum involvement: priority replies, personal presence
+      and coordination of housing, banking, services and family documents.
+    summary: >-
+      Everything included in the other packages, plus priority communication,
+      more frequent in-person meetings, accompaniment to government offices,
+      coordination of housing, banking and services, arranging an interpreter
+      and administrative matters for family members.
+    seo_title: "VIP support in Georgia — a personal manager for expats"
+    seo_description: >-
+      Priority personal support in Georgia: I go with you to government
+      offices and coordinate housing, banking, an interpreter and the family's
+      paperwork.
+    duration: "Monthly"
+    format: "Priority contact + regular in-person meetings"
+    for_whom:
+      - >-
+        You would rather have the result than work it all out: your time costs
+        more, there is a lot to do, and it concerns the whole family.
+      - >-
+        You want someone to physically go with you to the agency,
+        talk to the bank and keep the whole calendar in hand.
+    includes:
+      - "Everything from the previous packages"
+      - "Priority communication"
+      - "More frequent in-person meetings"
+      - "Accompaniment to various government offices"
+      - "Full administrative support with documents"
+      - "Coordination of matters involving housing, banking and various services"
+      - "Arranging interpreter services"
+      - "Coordination of administrative matters for family members"
+    excludes: >-
+      State fees, notary and interpreter services, rent
+      and bank charges are paid separately.
+    result: >-
+      The administrative side of life in Georgia that you barely
+      have to handle yourself.
+    faq:
+      - q: "What does “priority communication” mean?"
+        a: >-
+          Your messages are dealt with first, and for urgent matters a wider
+          contact window applies. The exact terms are set out
+          in the agreement.
+      - q: "Why does the price say “from”?"
+        a: >-
+          The workload depends a lot on the size of the family, the city and the
+          number of tasks. I quote the final figure after reviewing the situation — before work starts.
+
+  # --------------------------------------------------------------- 06 -------
+  # --------------------------------------------------------------- 06 -------
+  work_permit:
+    slug: "work-permit-georgia"
+    name: "Right to work (special labour permit)"
+    short: "A consultation, or full support through the procedure for a foreign national"
+    service_type: "Support in obtaining the right to work"
+    tagline: >-
+      The applicant goes through the procedure in person — my job is to make
+      sure they arrive prepared and with the right set of documents.
+    summary: >-
+      Administrative support through the process of obtaining the right to work
+      (the special labour permit) for foreign nationals: identifying documents,
+      checking the set, help with the electronic system and the payment,
+      preparation for the mandatory online interview, tracking the review.
+    seo_title: "Work permit for foreigners in Georgia: special labour permit"
+    seo_description: >-
+      Right to work in Georgia: consultation from 100 ₾, full support from 300
+      ₾. Documents, online application, the state fee and the mandatory video
+      interview.
+    duration: "Depends on the agency's processing time"
+    format: "Online; the applicant attends the interview in person"
+    for_whom:
+      - >-
+        You are a foreign national and you need to work legally in Georgia
+        or take a job with a Georgian company.
+      - >-
+        You want to understand the whole procedure, or to hand it over
+        and keep only the steps you have to do yourself.
+    includes:
+      - "Initial consultation and assessment of the situation"
+      - "Identifying the documents and information required"
+      - "Checking the documents you provide"
+      - "Help filling in the application"
+      - "Help registering and working with the electronic system"
+      - "Arranging and tracking payment of the state service fee"
+      - "Preparation for the mandatory online interview and an explanation of how it is conducted"
+      - "Interpreter services arranged if needed"
+      - "Tracking the review of the application"
+      - "Liaising with the relevant government bodies as part of the support"
+      - "Help if additional documents or information are requested"
+      - "Informing you of the decision taken"
+      - "Tracking the validity period of the right to work"
+      - "Help preparing documents for renewal"
+    excludes: >-
+      The state fee for the service and interpreter services
+      are paid separately.
+    note: >-
+      Important to know: documents are submitted to the Agency by the applicant
+      personally, and the mandatory video interview is also attended in person.
+      The service covers full administrative support with preparing and filing
+      the documents and coordination of every stage of the procedure.
+    steps:
+      - "Assessment of the situation and the list of documents"
+      - "Checking the set and filling in the application"
+      - "Online application and payment of the state service fee"
+      - "Preparation for the video interview"
+      - "Tracking the review and informing you of the decision"
+    result: >-
+      A correctly filed application, an interview you are ready for
+      and tracking of the validity period of the permit granted.
+    faq:
+      - q: "How does a consultation differ from full support?"
+        a: >-
+          A consultation is an assessment of your situation, the list of
+          documents, an explanation of the procedure and timelines and
+          instructions for filling in the application: after that you act on
+          your own. Full support means I run the process: I check the documents,
+          help with the application and the online filing, coordinate the
+          payment, prepare you for the interview and track the review.
+      - q: "Can you attend the interview instead of me?"
+        a: >-
+          No. The mandatory video interview is attended by the applicant
+          in person, that is a requirement of the procedure. I prepare you
+          for it: I explain the format, the usual questions and arrange
+          an interpreter if needed.
+      - q: "Do I need a residence permit to get the right to work?"
+        a: >-
+          These are separate procedures, but they often run together and the
+          order matters. At the consultation I will tell you which one makes
+          more sense to do first in your case.
+
+# =============================================================================
+#  ПРАЙС — подписи. Сами суммы в content/pricing.yml
+# =============================================================================

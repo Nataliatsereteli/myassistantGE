@@ -1,0 +1,22 @@
+{#
+  Личный блок: портрет, цитата собственным голосом и подпись.
+  Используется и на главной, и на странице «Обо мне».
+
+  Фотография подключается одной строкой в content/site.yml:
+      brand:
+        photo: "/assets/img/nata.jpg"
+  Пока её нет, рамка показывает монограмму — блок не разваливается.
+#}
+<figure class="portrait reveal">
+  <div class="portrait__frame">
+    {% if site.brand.photo %}
+    <img src="{{ base }}{{ site.brand.photo }}" alt="{{ t.meta.photo_alt }}" width="640" height="800" loading="lazy" decoding="async">
+    {% else %}
+    <div style="text-align:center">
+      <span class="portrait__monogram" aria-hidden="true">{{ site.brand.monogram }}</span>
+      <p class="portrait__hint">{{ ui.photo_placeholder }}</p>
+    </div>
+    {% endif %}
+  </div>
+  <figcaption>{{ t.meta.owner_name }}, {{ t.contacts.city }}</figcaption>
+</figure>

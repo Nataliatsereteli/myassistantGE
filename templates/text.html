@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{#
+  Универсальный шаблон текстовых страниц: политика обработки персональных
+  данных, публичная оферта и подобное.
+
+  Структура берётся из i18n -> pages.<ключ>.body — это список блоков.
+  Поддерживаются:
+
+    - h:    "Заголовок раздела"
+      p:    ["абзац", "абзац"]
+      list: ["пункт", "пункт"]          — маркированный список
+      num:  ["пункт", "пункт"]          — НУМЕРОВАННЫЙ список; нумерация
+                                          сквозная по всему документу,
+                                          поэтому на пункты можно ссылаться
+      note: "важное примечание"         — выделенная врезка
+
+  Любое поле необязательно: блок может состоять только из заголовка,
+  только из абзацев и так далее.
+
+  Реквизиты (наименование ИП, идентификационный номер, контакты) не пишутся
+  в тексте документа руками — они подставляются из content/site.yml
+  и content/contacts.yml, чтобы не разойтись с остальным сайтом.
+#}
+
+{% block content %}
+<section class="section section--tight">
+  <div class="wrap wrap--narrow">
+    {% include "partials/breadcrumbs.html" %}
+
+    <h1 class="h1" style="margin-top: var(--s6)">{{ page.title }}</h1>
+
+    {% if page.get('lead') %}
+    <p class="lead" style="margin-top: var(--s4)">{{ page.lead }}</p>
+    {% endif %}
+
+    <div class="doc-meta">
+      {% if page.get('updated') %}
+      <div><span class="doc-meta__k">{{ ui.updated }}</span><span class="doc-meta__v">{{ page.updated }}</span></div>
+      {% endif %}
+      {% if page.get('show_details', False) %}
+      <div><span class="doc-meta__k">{{ ui.legal_entity }}</span><span class="doc-meta__v">{{ site.legal.entity_name }}</span></div>
+      {% if site.legal.tax_id %}
+      <div><span class="doc-meta__k">{{ t.footer.tax_id_label }}</span><span class="doc-meta__v">{{ site.legal.tax_id }}</span></div>
+      {% endif %}
+      <div><span class="doc-meta__k">{{ ui.city }}</span><span class="doc-meta__v">{{ t.contacts.city }}</span></div>
+      {% for c in contact_links %}
+      <div><span class="doc-meta__k">{{ c.label }}</span><span class="doc-meta__v" dir="ltr">{{ c.value }}</span></div>
+      {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="prose doc" style="margin-top: var(--s6)">
+      {% for block in page.body %}
+      {% if block.get('h') %}<h2 class="h2">{{ block.h }}</h2>{% endif %}
+      {% for p in block.get('p', []) %}<p>{{ p }}</p>{% endfor %}
+      {% if block.get('num') %}
+      <ol class="doc__num">
+        {% for i in block.num %}<li>{{ i }}</li>{% endfor %}
+      </ol>
+      {% endif %}
+      {% if block.get('list') %}
+      <ul>{% for i in block.list %}<li>{{ i }}</li>{% endfor %}</ul>
+      {% endif %}
+      {% if block.get('note') %}
+      <div class="callout">{{ block.note }}</div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
