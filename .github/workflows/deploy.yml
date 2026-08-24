@@ -53,7 +53,12 @@ jobs:
       - name: Проверить результат сборки
         run: python scripts/verify_build.py
 
+      # enablement: true — включить Pages при первом прогоне, чтобы не лезть
+      # в Settings руками. Работает только в публичном репозитории:
+      # на бесплатном тарифе Pages в приватных репозиториях недоступен.
       - uses: actions/configure-pages@v6
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v5
         with:
