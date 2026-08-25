@@ -247,8 +247,6 @@ home:
   cases:
     kicker: "From my casebook"
     title: "Three recent engagements"
-    note: >-
-      Details that could identify the clients have been changed or removed.
     items:
       - tag: "Paperwork flow"
         situation: >-
