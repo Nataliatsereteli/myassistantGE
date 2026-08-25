@@ -1103,6 +1103,14 @@ p { text-wrap: pretty; }
   font-size: var(--t-small);
 }
 .footer__grid a:hover { color: var(--accent); }
+/* Контактные строки в подвале — не навигация: правило .footer__grid a выше
+   перебивает их флексовую раскладку (иконка выпадает на отдельную строку)
+   и отступы. Возвращаем то, что задано в разделе 16. */
+.footer__grid .contact-list a {
+  display: flex;
+  padding-block: var(--s4);
+  font-size: inherit;
+}
 .footer__legal {
   margin-top: var(--s7);
   padding-top: var(--s4);
