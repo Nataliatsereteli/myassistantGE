@@ -1008,7 +1008,7 @@ services:
       (the special labour permit) for foreign nationals: identifying documents,
       checking the set, help with the electronic system and the payment,
       preparation for the mandatory online interview, tracking the review.
-    seo_title: "Work permit for foreigners in Georgia: special labour permit"
+    seo_title: "Georgia work permit 2026: special labour permit support"
     seo_description: >-
       Right to work in Georgia: consultation from 100 ₾, full support from 300
       ₾. Documents, online application, the state fee and the mandatory video
@@ -1074,6 +1074,45 @@ services:
           These are separate procedures, but they often run together and the
           order matters. At the consultation I will tell you which one makes
           more sense to do first in your case.
+      - q: "Who needs the right to work in Georgia?"
+        a: >-
+          The requirement applies from 1 March 2026 to foreigners without
+          permanent residence who work or run a business in Georgia: employees
+          of Georgian companies, individual entrepreneurs and freelancers.
+          It does not apply to holders of permanent or investment residence
+          permits, refugees and persons under international protection,
+          accredited diplomats and journalists. Annual quotas apply to some
+          occupations — couriers, taxi drivers and guides.
+      - q: "How much is the state fee and how long does the review take?"
+        a: >-
+          The standard procedure is 200 ₾ and up to 30 calendar days,
+          the expedited one is 400 ₾ and up to 10 working days. This is
+          the Employment Agency's fee, separate from the cost of the support.
+          For an employee the application is filed and the fee paid by
+          the employer; the self-employed file and pay themselves.
+      - q: "What happens if you work without the permit?"
+        a: >-
+          A fine of 2000 ₾ for the foreigner and 2000 ₾ for the employer
+          or the organiser of the service — for each person working without
+          the right. For the self-employed who worked in Georgia before
+          the rules came in, enforcement applies from 1 May 2026,
+          and registered labour immigrants must obtain the right
+          by 1 January 2027.
+      - q: "I am a sole entrepreneur working only with foreign clients. Do I need it?"
+        a: >-
+          The most disputed question of the new rules: there is no official
+          clarification and even specialised lawyers read it differently.
+          The answer depends on the details: whether the activity is registered
+          in Georgia, where the clients are, whether there is Georgian income.
+          At a consultation I go through your specific situation and give
+          a clear plan of action rather than one-size-fits-all advice.
+      - q: "For how long is the right granted and how is it renewed?"
+        a: >-
+          The initial right is granted for 6 months to a year, for IT
+          specialists — up to 3 years. It is renewed for a year at a time
+          during the first five years, then for up to 5 years at once.
+          Renewal documents are filed no later than 30 days before expiry —
+          the reminder is part of the support.
 
 # =============================================================================
 #  ПРАЙС — подписи. Сами суммы в content/pricing.yml
