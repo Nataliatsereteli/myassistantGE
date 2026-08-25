@@ -1259,6 +1259,8 @@ p { text-wrap: pretty; }
   background: color-mix(in srgb, var(--accent) 82%, transparent);
   color: var(--on-accent, #fff);
 }
+/* display: flex выше специфичнее браузерного [hidden] — гасим явно. */
+.notice[hidden] { display: none; }
 .notice__link {
   display: flex;
   flex-wrap: wrap;
