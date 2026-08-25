@@ -954,16 +954,17 @@ p { text-wrap: pretty; }
 
 /* -------------------------------------------------------- 12. ЭТАПЫ РАБОТЫ */
 
+/* Таймлайн: нумерованные узлы, связанные вертикальной нитью. Разметка та же,
+   что и раньше (ol.steps > li.steps__item) — вся геометрия здесь. */
 .steps { counter-reset: step; display: grid; gap: 0; }
 .steps__item {
   counter-increment: step;
+  position: relative;
   display: grid;
   grid-template-columns: 3rem 1fr;
   gap: var(--s4);
-  padding-block: var(--s5);
-  border-top: var(--hair) solid var(--rule);
+  padding-block: var(--s4);
 }
-.steps__item:last-child { border-bottom: var(--hair) solid var(--rule); }
 .steps__item::before {
   content: counter(step, decimal-leading-zero);
   font-family: var(--font-mono);
@@ -971,8 +972,27 @@ p { text-wrap: pretty; }
   font-variant-numeric: tabular-nums;
   font-weight: 500;
   color: var(--accent);
-  padding-top: 0.28em;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--paper);
+  position: relative;
+  z-index: 1;
 }
+/* Нить между узлами: от низа кружка до кружка следующего шага. */
+.steps__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: calc(1.2rem - 0.5px);
+  top: calc(var(--s4) + 2.4rem);
+  bottom: calc(-1 * var(--s4));
+  width: 1px;
+  background: var(--rule-strong);
+}
+.section--paper2 .steps__item::before { background: var(--paper-2); }
 .steps__title { font-weight: 600; font-size: var(--t-h3); line-height: var(--lh-h3); }
 .steps__body  { color: var(--ink-2); font-size: var(--t-small); margin-top: var(--s2); line-height: 1.55; }
 
@@ -1226,6 +1246,115 @@ p { text-wrap: pretty; }
 }
 /* Маркированные списки внутри документа — без нумерации, они внутри пункта. */
 .doc ul > li::before { background: var(--rule-strong); }
+
+/* --------------------------------------------- 18a. ЛЕНТА ПТД (ГЛАВНАЯ) */
+/* Срочное сообщение под шапкой: дедлайны и штраф по праву на трудовую
+   деятельность. Вся лента — одна ссылка на страницу услуги. */
+
+.notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s2) var(--s4);
+  padding: var(--s3) var(--s5);
+  background: var(--accent);
+  color: var(--on-accent, #fff);
+  text-decoration: none;
+  transition: filter var(--dur) var(--ease);
+}
+.notice:hover { filter: brightness(1.12); }
+.notice__label {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  flex: none;
+}
+.notice__text { font-size: var(--t-small); font-weight: 500; max-width: 72ch; }
+.notice__cta {
+  font-size: var(--t-small);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-inline-start: auto;
+}
+
+/* ------------------------------------------------ 18c. МИНИ-КЕЙСЫ ИЗ ПРАКТИКИ */
+
+.cases { display: grid; gap: var(--s4); }
+@media (min-width: 780px) { .cases { grid-template-columns: repeat(3, 1fr); } }
+.case {
+  border: var(--hair) solid var(--rule);
+  background: var(--paper);
+  padding: var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+.case__tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.case__situation { font-weight: 600; font-size: var(--t-h3); line-height: var(--lh-h3); }
+.case__action { color: var(--ink-2); font-size: var(--t-small); line-height: 1.55; flex: 1; }
+.case__result {
+  font-size: var(--t-small);
+  font-weight: 600;
+  color: var(--accent);
+  border-top: var(--hair) solid var(--rule);
+  padding-top: var(--s3);
+}
+
+/* ---------------------------------------------- 18d. ФАКТЫ ПОД ПОРТРЕТОМ */
+
+.portrait__facts {
+  display: flex;
+  gap: var(--s5);
+  margin-top: var(--s4);
+  padding-top: var(--s4);
+  border-top: var(--hair) solid var(--rule);
+}
+.portrait__facts dt {
+  font-family: var(--font-serif, inherit);
+  font-size: var(--t-h2);
+  line-height: 1.1;
+  color: var(--accent);
+  font-weight: 600;
+}
+.portrait__facts dd {
+  margin: var(--s1) 0 0;
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+  max-width: 12ch;
+}
+
+/* --------------------------------------------------- 18e. ШТАМП «ПРОВЕРЕНО» */
+
+.verified {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border: var(--hair) solid var(--rule-strong);
+  border-radius: 99px;
+  padding: 0.35em 0.9em;
+}
+.verified__dot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
 
 /* ------------------------------------------- 18b. БАННЕР СОГЛАСИЯ (МЕТРИКА) */
 /* Показывается скриптом в base.html только пока посетитель не сделал выбор. */

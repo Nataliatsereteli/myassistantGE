@@ -34,6 +34,9 @@ meta:
   audience: "Foreign nationals living in Georgia or planning to move there"
   choose_language: "Choose language"
   owner_name: "Natalia Tsereteli"
+
+  # Факты под портретом: появятся, когда список заполнится (см. ru.yml).
+  owner_facts: []
   photo_alt: >-
     Natalia Tsereteli, personal case manager for administrative matters in Georgia
   # Текст на картинке для соцсетей (генерируется scripts/make_images.py).
@@ -81,6 +84,7 @@ ui:
   updated: "Updated"
   legal_entity: "Provider"
   photo_placeholder: "Photograph"
+  verified: "Verified"
 
 # --- Контактные подписи, зависящие от языка ---------------------------------
 contacts:
@@ -226,6 +230,49 @@ home:
       I will not promise that Georgian bureaucracy becomes simple. I will promise that you no longer have to work it out on your own.
     signature_caption: "Natalia Tsereteli · Tbilisi"
     cta: "More about me"
+
+
+  # Срочная лента под шапкой. Убрать после 1 января 2027: удалить блок notice
+  # из всех трёх языков — разметка исчезнет сама.
+  notice:
+    label: "Important · 2026"
+    text: >-
+      The right to work is mandatory since 1 March 2026. The fine is 2,000 GEL.
+      Already living in Georgia — apply before 1 January 2027.
+    cta: "How I can help"
+
+  # Обезличенные мини-кейсы из реальной практики. Правила: никаких имён,
+  # названий компаний и цифр, по которым можно опознать клиента.
+  cases:
+    kicker: "From my casebook"
+    title: "Three recent engagements"
+    note: >-
+      Details that could identify the clients have been changed or removed.
+    items:
+      - tag: "Paperwork flow"
+        situation: >-
+          A company with remote contractors in Georgia and abroad: bilingual
+          contracts and acts, renewal deadlines kept in the founder's head.
+        action: >-
+          I built the routine: a single register, bilingual Russian/Georgian
+          templates, automatic deadline tracking.
+        result: "Renewals and acts take minutes; no deadline has been missed"
+      - tag: "Monthly closings"
+        situation: >-
+          Every month the whole contractor team needs closing acts in two
+          languages — on time, with no errors in the details.
+        action: >-
+          I keep the closing calendar: the document pack is prepared in advance
+          and goes out for signatures without the company chasing me.
+        result: "Accounting gets its acts on time, month after month"
+      - tag: "New contractor"
+        situation: >-
+          The company needs a new remote contractor set up quickly and
+          correctly — contract, documents, records.
+        action: >-
+          A contract from a proven bilingual template, a document folder,
+          an entry in the register — all from a single request.
+        result: "The person was fully set up the same day"
 
   faq:
     kicker: "Questions"
@@ -1006,6 +1053,8 @@ services:
   # --------------------------------------------------------------- 06 -------
   work_permit:
     slug: "work-permit-georgia"
+    # Обновлять при каждой сверке правил с первоисточниками.
+    verified: "August 2026"
     name: "Right to work (special labour permit)"
     short: "A consultation, or full support through the procedure for a foreign national"
     service_type: "Support in obtaining the right to work"

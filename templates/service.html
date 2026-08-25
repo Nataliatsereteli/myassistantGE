@@ -11,6 +11,12 @@
       <header>
         <p class="kicker">{{ t.pages.services.nav_title }} · {{ "%02d"|format(service.order) }}</p>
         <h1 class="h1" style="margin-top: var(--s4)">{{ svc.name }}</h1>
+        {# Штамп свежести для страниц о меняющихся правилах: появляется, если
+           в i18n у услуги задано svc.verified («август 2026»). Обновлять
+           значение при каждой сверке с первоисточниками. #}
+        {% if svc.get('verified') %}
+        <p class="verified" style="margin-top: var(--s4)"><span class="verified__dot" aria-hidden="true"></span>{{ ui.verified }}: {{ svc.verified }}</p>
+        {% endif %}
         <p class="lead" style="margin-top: var(--s4)">{{ svc.tagline }}</p>
 
         <div class="btn-row" style="margin-top: var(--s6)">

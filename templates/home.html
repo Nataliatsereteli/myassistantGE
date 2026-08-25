@@ -2,6 +2,18 @@
 
 {% block content %}
 
+{# ------------------------------------------------------ ЛЕНТА ПТД -------- #}
+{# Срочное: дедлайны и штраф по праву на трудовую деятельность. Убрать ленту
+   после 1 января 2027 (или когда тема перестанет быть горящей) — удалить
+   блок notice из content/i18n/*.yml, разметка исчезнет сама. #}
+{% if t.home.get('notice') %}
+<a class="notice" href="{{ base }}/{{ lang }}/{{ t.pages.services.slug }}/{{ t.services.work_permit.slug }}/">
+  <span class="notice__label">{{ t.home.notice.label }}</span>
+  <span class="notice__text">{{ t.home.notice.text }}</span>
+  <span class="notice__cta">{{ t.home.notice.cta }}&nbsp;→</span>
+</a>
+{% endif %}
+
 {# ---------------------------------------------------------------- ГЕРОЙ --- #}
 <section class="hero">
   <div class="wrap">
@@ -133,8 +145,33 @@
 </section>
 {% endif %}
 
+{# --------------------------------------------------------- ИЗ ПРАКТИКИ --- #}
+{# Обезличенные мини-кейсы: ситуация → что сделала → результат.
+   Имён, названий компаний и цифр, по которым можно опознать клиента, здесь
+   быть не должно — тексты живут в content/i18n/*.yml -> home.cases. #}
+{% if t.home.get('cases') %}
+<section class="section" id="cases" data-index="§ 04">
+  <div class="wrap">
+    <p class="kicker">{{ t.home.cases.kicker }}</p>
+    <h2 class="h1" style="margin-top: var(--s4)">{{ t.home.cases.title }}</h2>
+    <div class="cases" style="margin-top: var(--s6)">
+      {# именно ['items'], не .items — атрибут перекрыт методом словаря #}
+      {% for c in t.home.cases['items'] %}
+      <article class="case">
+        <p class="case__tag">{{ c.tag }}</p>
+        <p class="case__situation">{{ c.situation }}</p>
+        <p class="case__action">{{ c.action }}</p>
+        <p class="case__result">{{ c.result }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="small" style="margin-top: var(--s4); color: var(--ink-3)">{{ t.home.cases.note }}</p>
+  </div>
+</section>
+{% endif %}
+
 {# ------------------------------------------------------------- ОБО МНЕ --- #}
-<section class="section" id="about" data-index="§ 04">
+<section class="section" id="about" data-index="§ 05">
   <div class="wrap">
     <div class="about">
       {% include "partials/person.html" %}
@@ -175,7 +212,7 @@
 
 {# ------------------------------------------------------------- ВОПРОСЫ --- #}
 {% if site.features.show_faq_on_home and faq_items %}
-<section class="section" id="faq" data-index="§ 05">
+<section class="section" id="faq" data-index="§ 06">
   <div class="wrap">
     <div class="editorial">
       <div>

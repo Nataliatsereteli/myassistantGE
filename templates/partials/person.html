@@ -19,4 +19,14 @@
     {% endif %}
   </div>
   <figcaption>{{ t.meta.owner_name }}, {{ t.contacts.city }}</figcaption>
+  {# Две-три строки сухих фактов под портретом: «лет в Грузии», «процедур
+     пройдено». Появятся сами, как только список t.meta.owner_facts в
+     content/i18n/*.yml перестанет быть пустым. #}
+  {% if t.meta.get('owner_facts') %}
+  <dl class="portrait__facts">
+    {% for f in t.meta.owner_facts %}
+    <div><dt>{{ f.v }}</dt><dd>{{ f.k }}</dd></div>
+    {% endfor %}
+  </dl>
+  {% endif %}
 </figure>
