@@ -7,11 +7,29 @@
    после 1 января 2027 (или когда тема перестанет быть горящей) — удалить
    блок notice из content/i18n/*.yml, разметка исчезнет сама. #}
 {% if t.home.get('notice') %}
-<a class="notice" href="{{ base }}/{{ lang }}/{{ t.pages.services.slug }}/{{ t.services.work_permit.slug }}/">
-  <span class="notice__label">{{ t.home.notice.label }}</span>
-  <span class="notice__text">{{ t.home.notice.text }}</span>
-  <span class="notice__cta">{{ t.home.notice.cta }}&nbsp;→</span>
-</a>
+<div class="notice" id="notice">
+  <a class="notice__link" href="{{ base }}/{{ lang }}/{{ t.pages.services.slug }}/{{ t.services.work_permit.slug }}/">
+    <span class="notice__label">{{ t.home.notice.label }}</span>
+    <span class="notice__text">{{ t.home.notice.text }}</span>
+    <span class="notice__cta">{{ t.home.notice.cta }}&nbsp;→</span>
+  </a>
+  <button class="notice__close" type="button" aria-label="{{ ui.close }}">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg>
+  </button>
+</div>
+<script>
+/* Закрытие запоминается на устройстве посетителя. Ключ с годом: если лента
+   поменяется на новую кампанию — сменить ключ, и её увидят снова. */
+(function () {
+  var n = document.getElementById("notice"), KEY = "ma-notice-2026";
+  if (!n) return;
+  try { if (localStorage.getItem(KEY) === "closed") { n.hidden = true; return; } } catch (e) {}
+  n.querySelector(".notice__close").addEventListener("click", function () {
+    n.hidden = true;
+    try { localStorage.setItem(KEY, "closed"); } catch (e) {}
+  });
+})();
+</script>
 {% endif %}
 
 {# ---------------------------------------------------------------- ГЕРОЙ --- #}
@@ -165,7 +183,7 @@
       </article>
       {% endfor %}
     </div>
-    <p class="small" style="margin-top: var(--s4); color: var(--ink-3)">{{ t.home.cases.note }}</p>
+    <p style="margin-top: var(--s3); color: var(--ink-3); font-size: var(--t-xs)">{{ t.home.cases.note }}</p>
   </div>
 </section>
 {% endif %}

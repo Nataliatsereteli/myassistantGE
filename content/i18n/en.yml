@@ -85,6 +85,7 @@ ui:
   legal_entity: "Provider"
   photo_placeholder: "Photograph"
   verified: "Verified"
+  close: "Close"
 
 # --- Контактные подписи, зависящие от языка ---------------------------------
 contacts:
