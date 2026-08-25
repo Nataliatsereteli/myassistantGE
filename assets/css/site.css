@@ -1227,6 +1227,27 @@ p { text-wrap: pretty; }
 /* Маркированные списки внутри документа — без нумерации, они внутри пункта. */
 .doc ul > li::before { background: var(--rule-strong); }
 
+/* ------------------------------------------- 18b. БАННЕР СОГЛАСИЯ (МЕТРИКА) */
+/* Показывается скриптом в base.html только пока посетитель не сделал выбор. */
+
+.consent {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s3) var(--s5);
+  padding: var(--s3) var(--s5);
+  background: var(--paper-2);
+  border-top: var(--hair) solid var(--rule-strong);
+  box-shadow: 0 -6px 24px rgb(0 0 0 / 0.08);
+}
+.consent__text { max-width: 52ch; font-size: var(--t-small); color: var(--ink-2); margin: 0; }
+.consent__actions { display: flex; gap: var(--s3); flex: none; }
+
 /* ---------------------------------------------------------- 19. СЛУЖЕБНОЕ */
 
 .skip-link {

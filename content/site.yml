@@ -110,14 +110,16 @@ forms:
   redirect_to_thanks: true
 
 # --- Аналитика ---------------------------------------------------------------
-# provider: none | plausible | umami | ga4
+# provider: none | plausible | umami | ga4 | metrica
 # Plausible и Umami не требуют баннера про cookies — они не ставят cookies.
+# Метрика и GA4 cookies ставят: включая их, помните про баннер согласия.
 analytics:
   provider: "none"
   domain: ""                # для plausible: myassistant.ge
   script: "https://plausible.io/js/script.js"
   website_id: ""            # для umami
   measurement_id: ""        # для ga4: G-XXXXXXXXXX
+  counter_id: ""            # для metrica: номер счётчика, только цифры
 
 # --- Подтверждение прав в поисковиках ----------------------------------------
 # Коды из Google Search Console и Яндекс.Вебмастера.

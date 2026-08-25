@@ -337,6 +337,15 @@ form:
 # =============================================================================
 #  ПОДВАЛ
 # =============================================================================
+# Баннер согласия на аналитику. Показывается только когда включён
+# счётчик, который ставит cookies (analytics.provider: metrica или ga4).
+consent:
+  text: >-
+    I use Yandex Metrica to see which pages are useful.
+    It sets cookies. Allow it?
+  accept: "Allow"
+  decline: "No, thanks"
+
 footer:
   about: >-
     Personal administrative support for foreign nationals in Georgia:

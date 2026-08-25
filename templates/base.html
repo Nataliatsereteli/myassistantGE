@@ -75,6 +75,34 @@
 {% elif site.analytics.provider == 'ga4' and site.analytics.measurement_id %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.measurement_id }}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ site.analytics.measurement_id }}');</script>
+{% elif site.analytics.provider == 'metrica' and site.analytics.counter_id %}
+{# Метрика ставит cookies, поэтому не грузится, пока посетитель не согласился.
+   Выбор запоминается в localStorage: yes — счётчик включается сразу при
+   следующих визитах, no — баннер больше не показывается. #}
+<script>
+(function () {
+  var KEY = "ma-consent", choice = null;
+  try { choice = localStorage.getItem(KEY); } catch (e) {}
+  function load() {
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+    ym({{ site.analytics.counter_id }}, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+  }
+  if (choice === "yes") { load(); return; }
+  if (choice === "no") { return; }
+  document.addEventListener("DOMContentLoaded", function () {
+    var bar = document.getElementById("consent");
+    if (!bar) return;
+    bar.hidden = false;
+    bar.addEventListener("click", function (ev) {
+      var v = ev.target && ev.target.getAttribute("data-consent");
+      if (!v) return;
+      try { localStorage.setItem(KEY, v); } catch (e) {}
+      bar.hidden = true;
+      if (v === "yes") load();
+    });
+  });
+})();
+</script>
 {% endif %}
 {% if site.verification.google %}<meta name="google-site-verification" content="{{ site.verification.google }}">{% endif %}
 {% if site.verification.yandex %}<meta name="yandex-verification" content="{{ site.verification.yandex }}">{% endif %}
@@ -102,6 +130,16 @@
   {%- include "partials/icons/chat.svg" -%}
   <span>{{ ui.write_to_me }}</span>
 </a>
+{% endif %}
+
+{% if site.analytics.provider == 'metrica' and site.analytics.counter_id %}
+<div class="consent" id="consent" hidden>
+  <p class="consent__text">{{ t.consent.text }}</p>
+  <div class="consent__actions">
+    <button type="button" class="btn btn--primary btn--sm" data-consent="yes">{{ t.consent.accept }}</button>
+    <button type="button" class="btn btn--quiet btn--sm" data-consent="no">{{ t.consent.decline }}</button>
+  </div>
+</div>
 {% endif %}
 
 <script src="{{ base }}/assets/js/site.js?v={{ asset_v }}" defer></script>
