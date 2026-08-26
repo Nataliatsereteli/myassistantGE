@@ -1401,6 +1401,8 @@ p { text-wrap: pretty; }
   border-top: var(--hair) solid var(--rule-strong);
   box-shadow: 0 -6px 24px rgb(0 0 0 / 0.08);
 }
+/* display: flex специфичнее браузерного [hidden] — гасим явно. */
+.consent[hidden] { display: none; }
 .consent__text { max-width: 52ch; font-size: var(--t-small); color: var(--ink-2); margin: 0; }
 .consent__actions { display: flex; gap: var(--s3); flex: none; }
 
