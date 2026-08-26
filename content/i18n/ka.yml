@@ -390,8 +390,7 @@ form:
 # счётчик, который ставит cookies (analytics.provider: metrica или ga4).
 consent:
   text: >-
-    ვიყენებ Yandex Metrica-ს, რომ გავიგო, რომელი გვერდებია სასარგებლო.
-    ის cookies-ს აყენებს. თანახმა ხართ?
+    ჩვენ ვიყენებთ cookies. ნებას რთავთ?
   accept: "თანახმა ვარ"
   decline: "არა"
 

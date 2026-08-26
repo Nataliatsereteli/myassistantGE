@@ -387,8 +387,7 @@ form:
 # счётчик, который ставит cookies (analytics.provider: metrica или ga4).
 consent:
   text: >-
-    I use Yandex Metrica to see which pages are useful.
-    It sets cookies. Allow it?
+    We use cookies. Allow?
   accept: "Allow"
   decline: "No, thanks"
 
